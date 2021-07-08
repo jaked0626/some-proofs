@@ -1,0 +1,150 @@
+---
+title: "Math 15910: Problem Set 7"
+author: "Underland, Jake"
+date: "`r Sys.Date()`"
+output:
+  pdf_document: 
+    latex_engine: xelatex
+    toc: true
+  html_document:
+    toc: false
+    toc_depth: 3
+    toc_float: yes
+  word_document:
+    toc: false
+    toc_depth: '3'
+---
+</style>
+
+<style type="text/css">
+
+body, td {
+   font-size: 14px;
+}
+
+</style>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+# Exercise 1  
+## Problem 3.2.9  
+\textit{Suppose $\lim _{n \to \infty} x_n = x $ and $\lim _{n \to \infty} y_n = y $}
+\begin{enumerate}
+\item \textit{Show that $\lim _{n \to \infty} (x_n + y_n) = x + y$}  
+  
+Proof. From the supposition, we know that for all $\epsilon >0$ there exists an $N \in \mathbb{N}$ such that for all $n>N$,
+\[\begin{aligned}|x_n - x| &< \epsilon  \\ |y_n - y| &< \epsilon\end{aligned}\]
+Let $\epsilon = \frac{\epsilon'}{2}$. Then, 
+\[\begin{aligned}|x_n - x| &< \frac{\epsilon'}{2} \\ |y_n - y| &< \frac{\epsilon'}{2}\end{aligned}\] 
+From triangle inequality, 
+\[\begin{aligned}|x_n + y_n - x - y| \leq |x_n - x| + |y_n - y| &< \frac{\epsilon'}{2}+ \frac{\epsilon'}{2} \\ |x_n + y_n - (x + y)|&< \epsilon' \end{aligned}\]
+This holds for all $\epsilon' > 0$. Thus, $x + y$ is the limit. 
+
+\hfill $\Box$  
+ 
+\item \textit{Show that if for all $n \in \mathbb{N} y_n ̸\neq 0$ and $y \neq 0$, then $\lim_{n\to \infty}(\frac{1}{y_n}) = \frac{1}{y}$.}  
+  
+Proof. Since $\lim _{n \to \infty} y_n = y$, it is obvious that $\lim _{n \to \infty} |y_n| = |y|$. Then, for all $\epsilon > 0$, there exists an $N$ such that for all $n > N$, $|y_n|$ becomes arbitrarily close to $|y|$. Thus, we can say with certainty that there exists $N_1$ such that for all $n>N_1$, $|y_n| > \frac{|y|}{2}$. This implies $\frac{1}{|y_n|} < \frac{2}{|y|}$.  
+Further, let $\epsilon = \epsilon' \frac{|y|^2}{2}$. Then, there also exists $N_2$ such that for all $n > N_2$, $|y_n - y| < \epsilon$.  
+Now, let us set $N=\max \{ N_1, N_2\}$. Then, 
+\[\begin{aligned}&|\frac{1}{y_n} - \frac{1}{y}| 
+\\ = &|\frac{y - y_n}{y_n y}| 
+\\ = &\frac{|y_n - y|}{|y_n||y|} 
+\\ < &\epsilon' \frac{|y|^2}{2} \cdot \frac{2}{|y|} \cdot \frac{1}{|y|}
+\\ = &\epsilon'
+\end{aligned}\]
+Therefore, for all $\epsilon'>0$, there exists $N \in \mathbb{N}$ such that for all $n > N$, $|\frac{1}{y_n} - \frac{1}{y}| < \epsilon'$. Thus,  $\lim_{n\to \infty}(\frac{1}{y_n}) = \frac{1}{y}$.
+
+\hfill $\Box$ 
+\end{enumerate}
+
+
+# Exercise 2
+\textit{Let $m \in \mathbb{N}$. Prove that $(x_n)_{n \in \mathbb{N}}$ converges iff $(x_{m+n})_{n \in \mathbb{N}}$ converges. Moreover, show that $\lim_{n\to\infty} x_n = \lim_{n\to\infty} x_{m+n}$}  
+  
+    Proof. If $(x_n)_{n \in \mathbb{N}}$ converges to $x$, then we know that for all $\epsilon >0$ there exists an $N \in \mathbb{N}$ such that for all $n>N$, $|x_n - x|<\epsilon$. Since $m + n > n$, $(x_{m+n})$ also converges to the same limit $x$.   
+    If $(x_{m+n})_{n \in \mathbb{N}}$ converges to $x$, then for all $\epsilon >0$ there exists an $N_1 \in \mathbb{N}$ such that for all $m + n>N_1$, $|x_{m+n} - x|<\epsilon$. Then, take $N_2 = N_1 + m$. For all $n + m> N_2, \space n+m > N_1 + m > N_1$. Furthermore, $n+m > N_1 + m \implies n > N_1$. Thus, $|x_{n} - x|<\epsilon$. Such an $N_2$ exists for all $\epsilon$, given that $(x_{m+n})_{n \in \mathbb{N}}$ converges. Thus, $(x_n)_{n \in \mathbb{N}}$ converges iff $(x_{m+n})_{n \in \mathbb{N}}$, and their limits are equivalent. 
+
+\hfill $\Box$
+
+# Exercise 3  
+\textit{Show that $(x_n)_{n\in \mathbb{N}}$ converges to $L$ if and only if every subsequence of $(x_n)_{n\in \mathbb{N}}$ converges to $L$}
+
+    Proof. Let $b_n$ be a subsequence of $x_n$. If 
+
+\hfill $\Box$  
+
+# Exercise 4  
+*Show that every bounded open interval $(a,b) \subseteq \mathbb{R}$ can be described as $\{x\in \mathbb{R}||x−x_0|<\epsilon\}$ for some value $x_0 \in \mathbb{R}$ and some $\epsilon>0$. What are the values of $x_0$ and $\epsilon$ in terms of $a$ and $b$? And conversely, given $x_0$ and $ε$, what are the endpoints of the interval $\{x\in \mathbb{R}||x−x_0|<\epsilon\}$?*  
+
+Proof. In this definition, $x_0$ denotes the median point between $a$ and $b$, or $\frac{a + b}{2}$, and $\epsilon$ denotes half of the length of the interval $\frac{|b - a|}{2}$. $\{x\in \mathbb{R}||x−x_0|<\epsilon\}$ says that for every $x \in R$ such that the distance between $x$ and $x_0$, the median point of the interval $(a, b)$, measured by $|x−x_0|$, must be less than $\epsilon$ which is the distance from this median point to $a$ or $b$. Thus the endpoints of this interval can be described as $x_0 \pm \epsilon$, and the interval can be restated as $(x_0 - \epsilon, x_0 + \epsilon)$ or the symmetric neighborhood of $x_0$. 
+  
+\hfill $\Box$
+
+# Exercise 5  
+## Problem 3.4.3  
+*Suppose that $I$ is a subset of $\mathbb{R}$. Show that $I$ is an interval if and only if for all $a, b \in I$, with $a \leq b$, the closed interval $[a, b] \subseteq I$.*  
+  
+    Proof. Let $x, y$ be the endpoints of $I$, where $x < y$. Suppose $I$ is an interval. Take $a, b \in I$. Then, $x \leq a$ and $b \leq y$, or else $a, b \notin I$. Because, all values between $x$ and $y$ are in $I$, any value between $a$ and $b$ is also between $x$ and $y$ and is therefore inside $I$. From our supposition, $a, b \in I$. Thus, $[a, b] \subseteq I$.  
+    Now, take the statement if for all $a, b \in I$ such that $a \leq b$, $[a, b] \subseteq I$, then $I$ is an interval. We prove the converse. Suppose $I$ is not an interval. This means $I$ cannot be written in any of the 10 categories described in Definition 3.4.1 of Sally. This means there is a discontinuity between 2 values in $I$, or 2 values $c, d \in I$ where $c < d$ such that $\frac{c + d}{2} \notin I$. Then, it follows that for some $a, b \in I$ such that $a \leq b$, $[a, b] \nsubseteq I$. Thus, the converse is true, and we have proven the statement. 
+
+\hfill $\Box$  
+
+
+# Exercise 6  
+*Let $I_n = [a_n, b_n]$ for $n \in \mathbb{N}$ be a nested collection of intervals. Suppose that $\inf \{b_n - a_n|n\in \mathbb{N}\} = 0$. Show that the number $\xi \in \cap^{\infty}_{n=1} I_n$ is unique.*  
+
+    Proof. Suppose that $\inf \{b_n - a_n|n\in \mathbb{N}\} = 0$. Then, for one of the intervals $I_\xi$, $a_n = b_n$. Thus, the interval is a point, or unique value  $\xi$ such that $a_n = b_n = \xi$. By the Nested Interval Theorem, we know that $\cap^{\infty}_{n=1} I_n \neq \emptyset$/. Therefore, there must be at least one value that is found in every interval. However, since we know that one of these intervals only contains one unique value $\xi$, for any value $i \in I_i$ to be in $\cap^{\infty}_{n=1} I_n$, $i \in I_\xi \implies i = \xi$. Thus, $\xi \in \cap^{\infty}_{n=1} I_n$ is unique. 
+  
+\hfill $\Box$  
+  
+# Exercise 7  
+## Problem 3.6.5  
+*Show that the limit of a convergent sequence is unique.*  
+
+    Proof. Let us denote this sequence by $a_n$ and its limits $L, M$. Suppose $L \neq M$. Then, for every $\epsilon >0$, there exists $N_L, N_M \in \mathbb{N}$ such that if $n > N_L$, $|a_n - L| < \epsilon$ and if $n > N_M$, $|a_n - M| < \epsilon$. Let $\epsilon = \frac{|L - M|}{4}$, and $n > \max \{N_L, N_M\}$. Then, from trianble inequality in theorem 3.6.2,  
+\[\begin{aligned} |L - M| \leq |L - a_n| &+ |a_n - M| < 2 \epsilon 
+\\ \implies |L - M| \leq |L - a_n| &+ |a_n - M| < \frac{|L - M|}{2} 
+\\ \implies |L - M| &< \frac{|L - M|}{2} \end{aligned}\]
+This is impossible, since $|L - M| > 0$. Thus, $L = M$, and the limit of a sequence is unique. 
+
+\hfill $\Box$
+
+
+# Exercise 8  
+*Show that the sequence $a_n = (-1)^n$ is divergent*  
+
+    Proof. Take $a \in \mathbb{R}$  and $\epsilon = 1$. Then, for all $N \in \mathbb{N}$, take $n = 2N > N$. Then, 
+\[\begin{aligned}|a_n - a| &= |(-1)^n - a| \\ 
+&=|(-1)^{2N} - a| \\
+&= |1 - a|\end{aligned}\]
+If $a \leq 0$ or $a \geq 2$, then $|1-a| \geq \epsilon$, and $a$ is not a limit. If $0 < a < 2$, we change $n$ to be $2N + 1 > 2N > N$. Then, 
+\[\begin{aligned}|a_n - a| &= |(-1)^n - a| \\ 
+&=|(-1)^{2N+1} - a| \\
+&= |-1 - a| \geq 1 = \epsilon \end{aligned}\]
+Thus, for all $a \in \mathbb{R}$, there exists $\epsilon > 0$ such that for all $N \in \mathbb{N}$, there is an $n > N$ such that $|a_n - a| \geq \epsilon$. This shows that the sequence is divergent. 
+
+\hfill $\Box$
+
+
+# Bonus  
+*Use the nested interval theorem to obtain a new proof of the fact that R is uncountable.*  
+
+    Proof. We already know there is a bijection between $(0, 1)$ and $\mathbb{R}$, so we will prove that $(0, 1)$ is uncountable.  
+    Suppose it is countable. Then, the elements of $(0, 1)$ are subscriptable as $\{a_1, a_2, \dots, a_n, \dots\}$. Since $(0, 1)$ is a bounded interval in $\mathbb{R}$, it contains a nested sequence of closed bounded intervals in $\mathbb{R}$. Let these intervals $I_n$ be such that $a_n \notin I_n$. From the nested interval theorem, $\cap ^\infty _{n=1} I_n$ is nonempty. Then, there exists $x_i$ such that $x_i \in \cap ^\infty _{n=1} I_n$, or $x_i$ is in every single interval $I_n$. However, this is a contradiction since the set of $I_{n > i}$ do not include $x_i$ by definition. Therefore, $(0, 1)$ is not countable, and concomitantly, $\mathbb{R}$ is uncountable. 
+ 
+\hfill $\Box$
+
+
+
+
+
+
+
+
+
+
+
+
+

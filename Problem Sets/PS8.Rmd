@@ -1,0 +1,197 @@
+---
+title: "Math 15910: Problem Set 8"
+author: "Underland, Jake"
+date: "`r Sys.Date()`"
+output:
+  pdf_document: 
+    latex_engine: xelatex
+    toc: true
+  html_document:
+    toc: false
+    toc_depth: 3
+    toc_float: yes
+  word_document:
+    toc: false
+    toc_depth: '3'
+---
+</style>
+
+<style type="text/css">
+
+body, td {
+   font-size: 14px;
+}
+
+</style>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+# Exercise 1  
+## Problem 3.2.9  
+\textit{Suppose $\lim _{n \to \infty} x_n = x $ and $\lim _{n \to \infty} y_n = y $}
+\begin{enumerate}
+\item \textit{Show that $\lim _{n \to \infty} (x_n + y_n) = x + y$}  
+  
+Proof. From the supposition, we know that for all $\epsilon >0$ there exists an $N \in \mathbb{N}$ such that for all $n>N$,
+\[\begin{aligned}|x_n - x| &< \epsilon  \\ |y_n - y| &< \epsilon\end{aligned}\]
+Let $\epsilon = \frac{\epsilon'}{2}$. Then, 
+\[\begin{aligned}|x_n - x| &< \frac{\epsilon'}{2} \\ |y_n - y| &< \frac{\epsilon'}{2}\end{aligned}\] 
+From triangle inequality, 
+\[\begin{aligned}|x_n + y_n - x - y| \leq |x_n - x| + |y_n - y| &< \frac{\epsilon'}{2}+ \frac{\epsilon'}{2} \\ |x_n + y_n - (x + y)|&< \epsilon' \end{aligned}\]
+This holds for all $\epsilon' > 0$. Thus, $x + y$ is the limit. 
+
+\hfill $\Box$  
+ 
+\item \textit{Show that if for all $n \in \mathbb{N} y_n ̸\neq 0$ and $y \neq 0$, then $\lim_{n\to \infty}(\frac{1}{y_n}) = \frac{1}{y}$.}  
+  
+Proof. Since $\lim _{n \to \infty} y_n = y$, it is obvious that $\lim _{n \to \infty} |y_n| = |y|$. Then, for all $\epsilon > 0$, there exists an $N$ such that for all $n > N$, $|y_n|$ becomes arbitrarily close to $|y|$. Thus, we can say with certainty that there exists $N_1$ such that for all $n>N_1$, $|y_n| > \frac{|y|}{2}$. This implies $\frac{1}{|y_n|} < \frac{2}{|y|}$.  
+Further, let $\epsilon = \epsilon' \frac{|y|^2}{2}$. Then, there also exists $N_2$ such that for all $n > N_2$, $|y_n - y| < \epsilon$.  
+Now, let us set $N=\max \{ N_1, N_2\}$. Then, 
+\[\begin{aligned}&|\frac{1}{y_n} - \frac{1}{y}| 
+\\ = &|\frac{y - y_n}{y_n y}| 
+\\ = &\frac{|y_n - y|}{|y_n||y|} 
+\\ < &\epsilon' \frac{|y|^2}{2} \cdot \frac{2}{|y|} \cdot \frac{1}{|y|}
+\\ = &\epsilon'
+\end{aligned}\]
+Therefore, for all $\epsilon'>0$, there exists $N \in \mathbb{N}$ such that for all $n > N$, $|\frac{1}{y_n} - \frac{1}{y}| < \epsilon'$. Thus,  $\lim_{n\to \infty}(\frac{1}{y_n}) = \frac{1}{y}$.
+
+\hfill $\Box$ 
+\end{enumerate}
+
+
+# Exercise 2
+\textit{Let $m \in \mathbb{N}$. Prove that $(x_n)_{n \in \mathbb{N}}$ converges iff $(x_{m+n})_{n \in \mathbb{N}}$ converges. Moreover, show that $\lim_{n\to\infty} x_n = \lim_{n\to\infty} x_{m+n}$}  
+  
+    Proof. If $(x_n)_{n \in \mathbb{N}}$ converges to $x$, then we know that for all $\epsilon >0$ there exists an $N \in \mathbb{N}$ such that for all $n>N$, $|x_n - x|<\epsilon$. Since $m + n > n$, $(x_{m+n})$ also converges to the same limit $x$.   
+    If $(x_{m+n})_{n \in \mathbb{N}}$ converges to $x$, then for all $\epsilon >0$ there exists an $N_1 \in \mathbb{N}$ such that for all $m + n>N_1$, $|x_{m+n} - x|<\epsilon$. Then, take $N_2 = N_1 + m$. For all $n + m> N_2, \space n+m > N_1 + m > N_1$. Furthermore, $n+m > N_1 + m \implies n > N_1$. Thus, $|x_{n} - x|<\epsilon$. Such an $N_2$ exists for all $\epsilon$, given that $(x_{m+n})_{n \in \mathbb{N}}$ converges. Thus, $(x_n)_{n \in \mathbb{N}}$ converges iff $(x_{m+n})_{n \in \mathbb{N}}$, and their limits are equivalent. 
+
+\hfill $\Box$
+
+# Exercise 3  
+\textit{Show that $(x_n)_{n\in \mathbb{N}}$ converges to $L$ if and only if every subsequence of $(x_n)_{n\in \mathbb{N}}$ converges to $L$}
+
+    Proof. Let $b_n$ be a subsequence of $x_n$. Note that for all $x_n$, $b_n = x_m \text{ for } m > n$. By definition of convergence, for all $\epsilon >0$ there exists an $N \in \mathbb{N}$ such that for all $n>N$, $|x_n - L|<\epsilon$. Then, since $b_n = x_m \text{ where } m > n$, $|b_n - L|<\epsilon$, and thus $b_n$ converges to $L$. 
+    If every subsequence of $(x_n)_{n\in \mathbb{N}}$ converges to $L$, since a sequence is a subsequence of itself, it follows that $(x_n)_{n\in \mathbb{N}}$ converges to $L$. 
+
+\hfill $\Box$  
+
+# Exercise 4  
+\textit{Prove directly from the definition that $a_n=\frac{n + 2}{2n + 1}$ is Cauchy.}  
+
+Proof. Let $N = \frac{3}{2\epsilon}$. Then, for $m, n > N$, 
+\[\begin{aligned}|\frac{n+2}{2n+1} - \frac{m+2}{2m+1}| &= |\frac{3m - 3n}{(2n+1)(2m+1)}| 
+\\ &=|\frac{3n - 3m}{(2n+1)(2m+1)}| \\
+&\leq |\frac{3n}{(2n+1)(2m+1)}| + |\frac{3m}{(2n+1)(2m+1)}| \\
+&\leq |\frac{3n}{(2n2m)}| + |\frac{3m}{(2n2m)}| \\
+&= |\frac{3}{4m}| + |\frac{3}{4n}| \\
+&< |\frac{\epsilon}{2}| + |\frac{\epsilon}{2}| \\
+&= \epsilon
+\end{aligned}\] 
+Thus, $a_n$ is Cauchy. 
+  
+\hfill $\Box$
+
+# Exercise 5  
+## Problem 3.6.13  
+\textit{Prove that every Cauchy sequence in $\mathbb{R}$ is bounded.}  
+  
+    Proof. Since the sequence is Cauchy, for all $\epsilon > 0$, there exists $N$ such that for all $m, n > N$, $|a_n - a_m| < \epsilon$. Let $\epsilon = \epsilon_0$ and $N = N_0$ be the $N$ such that for all $m, n > N_0$, $|a_n - a_m| < \epsilon_0$. Furthermore, let $m=m_0>N_0$. Then, from triangle inequality, 
+\[\begin{aligned}|a_n -a_{m_0}| &<\epsilon_0 \\
+\implies |a_n -a_{m_0}| + |a_{m_0}| &<\epsilon_0 + |a_{m_0}| \\
+\text{From triangle inequality,} \\
+|a_n| = |a_n - a_{m_0} + a_{m_0}| &\leq |a_n -a_{m_0}| + |a_{m_0}|<\epsilon_0 + |a_{m_0}|\\
+\implies |a_n|&<\epsilon_0 + |a_{m_0}|
+\end{aligned}\]
+    Thus, $|a_n|$ is bounded.  
+    Theorem 3.6.14 shows that a sequence is convergent if and only if it is Cauchy. Since we know that Cauchy sequences are bounded, we can therefore deduce that all convergent sequences are bounded. 
+
+\hfill $\Box$  
+
+
+# Exercise 6  
+\textit{Let $(a_n)_{n \in \mathbb{N}}$ be a sequence of strictly positive real numbers and suppose that $(a_n)\to a$}
+\begin{enumerate}
+\item \textit{Show that $a \geq 0$.}  
+Proof. Suppose $a < 0$. Note that $a_n > 0$ for all $n$. Then, since $a$ is the limit of $a_n$, for all $\epsilon > 0$, there exists $N$ such that for all $n > N$, $|a_n - a| < \epsilon$. Let $\epsilon = \frac{|a|}{2} > 0$. Since $a < 0$ and $a_n > 0$,
+\[\begin{aligned}|a_n - a| = a_n - a &< \epsilon = -\frac{a}{2} \\
+\implies a_n &< -\frac{a}{2} + a = \frac{a}{2}\end{aligned}\]
+But $\frac{a}{2} < 0$, and $a_n > 0$, which is a contradiction. Thus, $a \geq 0$.  
+  
+\hfill $\Box$  
+\item \textit{Show that $(\sqrt {a_n}) \to \sqrt{a}$}.  
+Proof. Let $\epsilon = \frac{\epsilon'}{\sqrt a}$. Then, there exists $N \in \mathbb{N}$ such that for all $n > N$, the below holds.  
+\[\begin{aligned} 
+|\sqrt{a_n} - \sqrt a|
+&= \frac{|\sqrt{a_n} - \sqrt a| \cdot |\sqrt{a_n} + \sqrt a|}{|\sqrt{a_n} + \sqrt a|} \\
+&= \frac{|a_n - a|}{\sqrt{a_n} + \sqrt a} \\
+&<\frac{|a_n - a|}{\sqrt a} \\
+&< \frac{\epsilon}{\sqrt a} = \epsilon'
+\end{aligned}\]
+Thus, the limit of $\sqrt {a_n}$ is $\sqrt{a}$. 
+
+\hfill $\Box$ 
+\end{enumerate}
+  
+# Exercise 7  
+## Problem 3.6.18  
+\textit{Find the accumulation points of the following sets in $\mathbb{R}$}  
+\begin{enumerate}
+
+\item $S = (0,1)$;  
+  
+Since the interval $(0,1)$ is continuous within its end points, it is clear that for any $x \in (0, 1)$, for all $\epsilon > 0$, $(x - \epsilon, x + \epsilon) \cap (0, 1) \backslash \{x\} \neq \emptyset$. Now, take $0$ and $1$. If $x = 0$, then there exists $x + \epsilon_0 \in (x - \epsilon, x + \epsilon)$ such that $x + \epsilon_0 \in (0, 1)$ where $\epsilon_0 < \epsilon, \epsilon_0 < 1$. Further, if $x = 1$, then there exists $x - \epsilon_0 \in (x - \epsilon, x + \epsilon)$ such that $x - \epsilon_0 \in (0, 1)$ where $\epsilon_0 < \epsilon, \epsilon_0 < 1$. Thus, $1$ and $0$ are included, and the accumulation points of $(0,1)$ are $[0, 1]$. 
+
+\item \textit{$S = \{(-1)^n + \frac{1}{n}\}$};  
+  
+Let us observe the cases when $n$ is even and odd. When $n$ is even, we will denote this $n = 2m$ for $m \in \mathbb{N}$. Then, $(-1)^n + \frac{1}{n}$ gets arbitrarily close to $1$, since the greater $m$ is, the smaller $\frac{1}{n}$ gets, where $(-1)^n$ always equals $1$. In other words, for every $\epsilon > 0$, there exists $m \in \mathbb{N}$ such that $2m >  \frac{1}{\epsilon}$, or $\frac{1}{2m} < \epsilon$. Thus, $(1 - \epsilon, 1 + \epsilon) \cap S \backslash \{1\} \neq \emptyset$. So, $1$ is an accumulation point. Further, suppose $n$ is odd, and $n = 2m + 1$ for $m \in \mathbb{N}$. Then, $(-1)^n = -1$, and there exists $m \in \mathbb{N}$ such that $2m >  \frac{1}{\epsilon}$, or $\frac{1}{2m} < \epsilon$. Thus, $(-1 - \epsilon, -1 + \epsilon) \cap S \backslash \{-1\} \neq \emptyset$. So, $-1$ is an accumulation point.For any other $x \in \mathbb{R}$, let $s$ denote the closes number of the form $(-1)^n + \frac{1}{n}$. Then, for any $\epsilon < |x - s|$, there exists no number that can be represented as $(-1)^n + \frac{1}{n}$ within $(x - \epsilon, x + \epsilon)$, or else it would contradict our supposition that $s$ is the closest of such numbers to $x$. Thus, $x$ will not be an accumulation point, and the only accumulation points are $\{-1, 1\}$. 
+
+\item $S = \mathbb{Q}$  ;
+  
+Take $x \in \mathbb{R}$. Suppose $x > 0$. Then, $x + \epsilon > 0$. Since $x, \epsilon \in \mathbb{R}$,  $\epsilon$ has a decimal expansion, either finite or infinite. Take this decimal expansion until the first nonzero digit in the decimal expansion of $\epsilon$ and denote this $\epsilon_1$. Then, $x < x + \epsilon_1 < x + \epsilon$. Now, take the decimal expansion of $x + \epsilon_1$ until the digit in the place after the place of the first digit of $\epsilon$. Denote this $(x + \epsilon_1)'$. Then, $x < (x + \epsilon_1)' < x + \epsilon$, and $(x + \epsilon_1)'$ is rational. Similarly, we can find that for any $x \leq 0$, $x - \epsilon < (x - \epsilon_1)' < x$. Thus, there exists a rational number in the neighborhood of every $x \in \mathbb{R}$, and the accumulation point of $\mathbb{Q}$ is $\mathbb{R}$. 
+
+\item $S = \mathbb{Z}$;  
+  
+The integers do not have an accumulation point. Suppose they do. Then, for any $x \in \mathbb{R}$, take $s = \max\{|x - \lfloor{x}\rfloor| , |x - \lceil x \rceil|\}$ and let $\epsilon < s$. Then, for all $(x - \epsilon, x + \epsilon)$, there does not exist any integer. Thus, there is not accumulation point for $\mathbb{Z}$. 
+
+\item \textit{S is the set of rational numbers whose denominators are prime.}  
+  
+We know that the sequence of primes is infinite and increasing, and therefore the sequence of fractions $\frac{1}{p_i}$, where $p_i$ is a prime, is infinite and decreasing. For every $\epsilon > 0$, there exists $p_i > \epsilon$. Thus, for every $\epsilon = \frac{1}{\epsilon}$, there is a $\frac{1}{p_i} < \epsilon$. Therefore, $(-\epsilon, \epsilon) \cap S \neq \emptyset \implies \{0\}$ is an accumulation point. For any other $x \in \mathbb{R}$, take $p_i$ such that $\frac{1}{p_i} < \epsilon$. Then, there exists at least one $\frac{k}{p_i} \in (x-\epsilon, x +\epsilon), k \in \mathbb{Z}$. Thus, all $x \in \mathbb{R}$ is an accumulation point of $S$.
+
+\end{enumerate}
+
+\hfill $\Box$
+  
+
+
+# Exercise 8
+## Problem 3.6.21  
+
+\begin{enumerate}
+\item \textit{Find an infinite subset of $\mathbb{R}$ that does not have an accumulation point in $\mathbb{R}$}  
+  
+$\mathbb{Z}$ is an infinite subset of $\mathbb{R}$ that does not have an accumulation point, as we saw earlier. 
+\item \textit{Find a bounded subset of $\mathbb{R}$ that does not have an accumulation point in $\mathbb{R}$}  
+  
+The set $\{1\}$ is a bounded subset but does not have an accumulation point. This is because for any $x \in \mathbb{R}$, there exists a small enough $\epsilon > 0$ such that $(x - \epsilon, x + \epsilon) \backslash \{x\}$. 
+\item \textit{Find a bounded infinite subset of $\mathbb{Q}$ that does not have an accumulation point in $\mathbb{Q}$}  
+  
+The sequence \[x_n = \lfloor \sqrt 2 \cdot  10 ^{n-1}\rfloor \cdot \frac{1}{10^{n-1}}\]
+is bounded above by $\sqrt 2$, below by $1$, and is infinite. Its limit is $\sqrt 2$, as $x_n$ is just the decimal expansion of $\sqrt 2$ until the $n-1$th digit after the decimal. 
+\end{enumerate} 
+  
+\hfill $\Box$
+
+
+
+
+
+
+
+
+
+
+
+
+
+

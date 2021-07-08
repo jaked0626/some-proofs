@@ -1,0 +1,165 @@
+---
+title: "Math 15910: Problem Set 1"
+author: "Underland, Jake"
+date: "`r Sys.Date()`"
+output:
+  pdf_document: 
+    latex_engine: xelatex
+    toc: true
+  html_document:
+    toc: false
+    toc_depth: 3
+    toc_float: yes
+  word_document:
+    toc: false
+    toc_depth: '3'
+---
+</style>
+
+<style type="text/css">
+
+body, td {
+   font-size: 14px;
+}
+
+</style>
+# Exercise 1  
+## Problem 1.2.2  
+***If $A$ and $B$ are sets, show that $A = B$ if and only if $A \subseteq B$ and $B \subseteq A$.*** 
+  
+From $A=B$ we know that for any $x$, $$\text{if } x \in A, \text{ then } x \in B \text{ ... (1)}$$ 
+and, conversely, 
+$$\text{if } x \in B, \text{ then } x \in A \text{ ... (2)}$$ 
+From (1), by definition we obtain $A \subseteq B$ and from (2), we obtain $B \subseteq A$. Thus, we have proven
+$$ A = B \implies A \subseteq B \text{ and }B \subseteq A \text{ ... (3)}$$
+Now, suppose $A \subseteq B$ and $B \subseteq A$. Then, by definition, $\text{if } x \in A, \text{ then } x \in B$, and $\text{if } x \in B, \text{ then } x \in A$. This is equivalent to saying $A = B$. Thus, we have proven 
+$$A \subseteq B \text{ and }B \subseteq A \implies A = B  \text{ ... (4)}$$
+From (3) and (4), we obtain the following:
+$$ A = B \iff A \subseteq B \text{ and }B \subseteq A $$
+Therefore, $A = B$ if and only if $A \subseteq B$ and $B \subseteq A$. 
+\hfill $\Box$
+
+## Problem 1.2.3  
+***Suppose that $A, B, \text{and } C$ are sets. If $A \subseteq B$ and $B\subseteq C$, show that $A \subseteq C$.***  
+
+If $A \subseteq B$, it follows that for any $x$, $\text{if } x \in A, \text{ then } x \in B$. If $B \subseteq C$, it follows that $\text{if } x \in B, \text{ then } x \in C$. Suppose that $x \in A$. Then, since $A \subseteq B$, $x \in B$. Furthermore, if $x \in B$, since $B \subseteq C$, $x \in C$. Thus, for any $x \in A$ we have $x \in C$, and we have proven that if $A \subseteq B$ and $B\subseteq C$, then $A \subseteq C$.
+\hfill $\Box$
+  
+# Exercise 2  
+
+## Problem 1.3.9  
+### ii. *Prove $A \cap (B \cap C) = (A \cap B) \cap C$*
+
+  
+Take $x \in X$. Then, by definition of intersection, $$x \in A \cap (B \cap C) \iff x \in A \text{ and }x \in B \cap C$$
+Furthermore, 
+$$x \in (B \cap C) \iff x \in B \text{ and }x \in C$$
+Thus, we have  
+$$ x \in A \cap (B \cap C) \iff x \in A \text{ and }x \in B \text{ and }x \in C \text{ ... (1)}$$
+By the definition of intersection, 
+$$ x \in A \text{ and }x \in B \iff x \in (A \cap B) \text{ ... (2)}$$
+From (1) and (2), we have 
+$$x \in A \cap (B \cap C) \iff x \in (A \cap B) \text{ and }x \in C$$
+By the definition of intersection, 
+$$x \in (A \cap B) \text{ and }x \in C \iff x \in (A \cap B) \cap C$$
+Therefore, $x \in A \cap (B \cap C) \iff x \in (A \cap B) \cap C$ and we have proven that $A \cap (B \cap C) = (A \cap B) \cap C$, or in other words, associativity exists for intersection. 
+\hfill $\Box$
+
+### ix. *Prove $A \triangle B = \varnothing \iff A = B$* 
+
+Suppose $A \triangle B = \varnothing$. Then by definition of symmetric difference,  
+$$A \triangle B = (A \backslash B) \cup (B \backslash A) = \varnothing$$
+Note that if the union of two sets is an empty set, then the two sets must also be empty. This is clear from the definition of union $A \cup B = \{x \in X | x \in A \text{ or } x \in B \}$. Suppose that $A$ or $B$, or both, is a nonempty set. Then, there exists at least one $\{x \in X | x \in A \text{ or } x \in B \}$. Thus, $A \cup B$ would be nonempty also. Since we have proven the contrapositive, it holds that if the union of two sets is an empty set, then the two sets must also be empty.  
+From here it follows that 
+$$(A \backslash B) \cup (B \backslash A) = \varnothing \\ \implies (A \backslash B) = \varnothing \text{ and }(B \backslash A ) = \varnothing$$
+Take $(A \backslash B) = \varnothing$. Suppose there is an element $x$ such that $x \in A$ and $x \notin B$. By definition, $x \in A \text{ and }x \notin B \implies x \in A \backslash B$, but this contradicts with $(A \backslash B) = \varnothing$. Therefore, such an $x$ does not exist, meaning for all $x \in A$, $x \in B$. Thus, we obtain $A \subseteq B$.  
+Now, take $(B \backslash A) = \varnothing$. Through similar reasoning, we obtain $B \subseteq A$.  
+Since $A \subseteq B$ and $B \subseteq A$, $A = B$. We have thus proven that $A \triangle B = \varnothing \implies A = B$.  
+Now suppose $A = B$. From earlier proofs, we know that this implies $A \subseteq B$ and $B \subseteq A$. From the definition of $A \subseteq B$, we know that for all $x \in A$, $x \in B$ and can thus infer that $(A \backslash B) = \varnothing$. Similarly, we can infer that $(B \backslash A) = \varnothing$. Since $$(A \backslash B) = (B \backslash A) = \varnothing \\ \implies(A \backslash B) \cup (B \backslash A) = \varnothing \\ \implies A \triangle B = \varnothing$$ 
+Thus, we have proven that $A = B\implies A \triangle B = \varnothing$.  
+From the above, we have shown $A \triangle B = \varnothing \iff A = B$. 
+\hfill $\Box$
+
+### xi. *Prove $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$*  
+  
+Take $x \in X$. Then $$x \in A \cup (B \cap C)$$
+By definition of union, $$\iff x \in A \text{ or } x \in (B \cap C)$$
+By definition of intersection, 
+$$ \iff x \in A \text{ or } (x \in B \text{ and }x \in C)$$
+$$ \iff (x \in A \text{ or } x \in B) \text{ and } (x \in A \text{ or } x \in C)$$
+By definition of union, 
+$$\iff (x \in A \cup B) \text{ and } (x \in A \cup C)$$
+By definition of intersection, 
+$$\iff x \in (A \cup B) \cap (A \cup C)$$
+Thus, we have proven $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$.  
+
+\hfill $\Box$  
+
+
+### xii. *Prove $(A \cap B)^\mathsf{c} = A^\mathsf{c} \cup B^\mathsf{c}$*  
+  
+Let $x \in X$. Then $$x \in (A \cap B)^\mathsf{c}$$ 
+By definition of complements, 
+$$\iff x \in X \backslash (A \cap B)$$
+By definition of difference, 
+$$\iff x \notin (A \cap B) \text{ ... (since } x \in X \text{ is already given)}$$
+$x \notin (A \cap B)$ is the negation of $x \in (A \cap B)$, which is by definition tantamount to $x \in A \text{ and } x \in B$. It follows that the negation would be $x \notin A \text{ or } x \notin B$. Thus, 
+$$x \notin (A \cap B) \iff x \notin A \text{ or } x \notin B$$
+By definition of difference, 
+$$\iff x \in X \backslash A \text{ or } x \in X \backslash B$$
+By definition of complements, 
+$$\iff x \in A^\mathsf{c} \text{ or } x \in B^\mathsf{c}$$
+By definition of union, 
+$$\iff x \in A^\mathsf{c} \cup B^\mathsf{c}$$
+Therefore, we have proven that $(A \cap B)^\mathsf{c} = A^\mathsf{c} \cup B^\mathsf{c}$.  
+
+\hfill $\Box$  
+
+
+# Exercise 3  
+
+***Express each of the following statement as a conditional state-
+ment in ”if-then” form. For each statement, write the negation, the contrapositive and the converse. Your answers should use clear English, not logical symbols.***  
+
+## (a) Every odd number is prime.  
+* if - then: If a number is odd, then it is prime.  
+* negation: A number is odd and it is not prime.  
+* contrapositive: If a number is not prime, then it is not odd.  
+* converse: If a number is prime, then it is odd.  
+
+## (b) Passing the test requires solving all the problems.  
+* if - then: If one is to pass the test, then one must solve all the problems.  
+* negation: Someone passed the test but did not solve all the problems.  
+* contrapositive: If one does not solve all the problems, then they will not pass the test.  
+* converse: If one solves all the problems, then they will pass the test.
+
+## (c) Being first in line guarantees getting a good seat.  
+* if - then: If one is first in line, then they are guaranteed a good seat.  
+* negation: Someone was first in line but was not guaranteed a good seat.  
+* contrapositive: If one is not guaranteed a good seat, then they are not first in line.  
+* converse: If one is guaranteed a good seat, then they are first in line. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
