@@ -1,0 +1,307 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Math 15910: Problem Set 6},
+  pdfauthor={Underland, Jake},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
+\title{Math 15910: Problem Set 6}
+\author{Underland, Jake}
+\date{2021-08-09}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\hypertarget{exercise-1}{%
+\section{Exercise 1}\label{exercise-1}}
+
+\hypertarget{problem-1.5.4}{%
+\subsection{Problem 1.5.4}\label{problem-1.5.4}}
+
+\textit{Show that the statement "if $a,b \in \mathbb{Z}$ and $ab = 0$, then either $a = 0$ or $b=0$" is equivalent to cancellation. }
+
+~~~~Proof. Using the fact that for all
+\(a \in \mathbb{Z}, a \cdot 0 = 0\), we can restate the above as such:
+\[ \text{ If } a \neq 0 \text{ and } ab = a \cdot 0, \text{ then } b = 0.\]
+We replace the additive identity \(0\) with \(c\). Then, we get
+\[ \text{ If } a \neq 0 \text{ and } ab = a \cdot c, \text{ then } b = c.\]
+This is equivalent to the axiom of cancellation when \(b = 0\). When
+\(b \neq 0\), by contrapositive of the above, since both
+\(a, b \neq 0\), \(ab \neq 0\). Fix \(a, b, c \in \mathbb{Z}\) where
+\(a, b, c \neq 0\). Suppose
+\[\begin{aligned} ab &= cb \\ \implies ab - cb &= 0 \\ \implies (a - c)b &= 0 \\ \implies b = 0 &\text{ or } (a - c) = 0 \end{aligned}\]
+Since \(b \neq 0\), we have that \(a - c = 0\) and thus \(a = c\).
+Hence, we have arrived at the axiom of cancellation.
+
+\hfill \(\Box\)
+
+\hypertarget{exercise-2}{%
+\section{Exercise 2}\label{exercise-2}}
+
+\hypertarget{problem-1.5.7}{%
+\subsection{Problem 1.5.7}\label{problem-1.5.7}}
+
+\emph{Suppose that \(a < 0\) and \(b < 0\). Show that \(a < b\) iff
+\(b^2 < a^2\)}
+
+~~~~Proof. From Facts 1.5.5, We know that \(a < b \implies -a > -b\).
+Since \(a, b < 0\) and \(-1= -1 + 0 < -1 + 1= 0\) (using fact \(1 >0\)
+and (O3)), from fact 4, we have \(-a, -b > 0\). Thus, we can invoke
+axiom (O4).
+\[\begin{aligned} -a &> -b \\ \implies -a(-a) &> -b(-a) \\ \implies (-a)^2 &> -b(-a)\end{aligned} \]
+Furthermore,
+\[\begin{aligned} -a &> -b \\ \implies -a(-b) &> -b(-b) \\ \implies (-b)(-a) &> (-b)^2\end{aligned} \]
+From (O2),
+\[\begin{aligned} \implies (-a)^2 &> (-b)^2 \\ \implies (-1)(a)(-1)(a) &> (-1)(b)(-1)(b) \\ \implies (-1)^2 a^2 &> (-1)^2 b^2 \text{ (commutativity)} \end{aligned}\]
+From fact 6 from facts 1.5.1, \(-1(-1) = 1\). Thus,
+\[\implies a^2 > b^2\]\\
+Now, suppose \(a^2 > b^2\). Then, reverse the steps above to derive
+\(a < 0\) and \(b < 0\). \hfill \(\Box\)
+
+\hypertarget{exercise-3}{%
+\section{Exercise 3}\label{exercise-3}}
+
+\hypertarget{problem-1.-5.-10}{%
+\subsection{Problem 1. 5. 10}\label{problem-1.-5.-10}}
+
+\emph{Show that the cancellation axiom can be proved using the
+properties for addition and multiplication and the order axioms.}\\
+\[\text{ If } a \neq 0 \text{ and } ab = ac, \text{ then } b = c.\]
+~~~~Suppose \(a > 0\) and \(ab = ac\). Then, from (O4), if \(b < c\), it
+would follow that \(ab < ac\). From (O1), this contradicts our
+supposition, so \(b \geq c\). If \(b > c\), from (O4), it would follow
+that \(ab > ac\). From (O1), this contradicts our supposition.
+Therefore, \(b \leq c\). The only relation of \(b\) and \(c\) that
+satisfies the two relations above is \(b = c\), from (O1).\\
+\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}Now,
+suppose \(a < 0\) and \(ab = ac\). Then, from fact (7) from facts 1.5.5,
+if \(b < c\), it would follow that \(ab > ac\). From (O1), this
+contradicts our supposition. Therefore, \(b \geq c\). If \(b > c\), it
+would follow that \(ab < ac\). From (O1), this contradicts our
+assumption, so \(b\leq c\). From (O1), the only relation of \(b\) and
+\(c\) that satisfies the above is \(b = c\).\\
+\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}Therefore,
+when \(a \neq 0 \text{ and } ab = ac, \text{ then } b = c.\)
+
+\hfill \(\Box\)
+
+\hypertarget{exercise-4}{%
+\section{Exercise 4}\label{exercise-4}}
+
+\hypertarget{problem-1.6.21}{%
+\subsection{Problem 1.6.21}\label{problem-1.6.21}}
+
+\emph{Let \(X\) be a nonempty set and \(R = P(X)\). Show that \(R\) with
+symmetric difference as addition and intersection as multiplication is a
+commutative ring with \(1\). When is \(R\) a field?}
+
+\begin{itemize} 
+\item (A1): We define addition as the symmetric difference of two sets. Since $P(X)$ is the set of all possible subsets of $X$, any nonempty set whose elements are also in $X$ is in $P(X)$, as well as the empty set. It is clear that the symmetric difference of any two elements in $P(X)$, which are both subsets of $X$, will be a subset of $X$ and thus contained in $P(X)$.  
+Take $A, B \in R$. Suppose $A \triangle B \notin R$. Then, there exists $z \in A \triangle B$ such that $z \notin X$. By definition of symmetric difference, $z$ must be an element of either $A$ or $B$. However, if $z$ was in either set, then that set would not be a subset of $X$, and thus not in $R$. This is a contradiction, so $A \triangle B \in R$, and we have shown closure of addition in $R$. 
+\item (A2): From facts presented in Sally 1.3, we know that symmetric difference is associative. 
+\item (A3): Similarly, we know that symmetric difference is commutative. 
+\item (A4): Take any set $A \in R$. Then, \[\begin{aligned} &A \triangle \emptyset \\ = &\emptyset \triangle A \space \dots \text{ from associativity established above}\\ = &(A\backslash \emptyset) \cup (\emptyset \backslash A) \\ = & A \cup \emptyset \\ =& A \end{aligned} \]
+Thus, the additive identity exists and is the empty set. 
+\item (A5): Take $A \in R$. Then, 
+\[\begin{aligned} & A \triangle A \\ = &(A\backslash A) \cup (A \backslash A) \\ = & \emptyset \cup \emptyset \\ =& \emptyset \end{aligned}\]
+Thus, the additive inverse for each set exists and is the set itself.
+  
+
+\item (M1): We define multiplication as the intersection of two sets.  
+Take $A, B \in R$. Suppose $A \cap B \notin R$. Then, there exists $z \in A\cap B$ such that $z \notin X$. By definition of intersection, $z$ must be an element of both $A$ and $B$. However, if $z$ was in either set, then that set would not be a subset of $X$, and thus not in $R$. This is a contradiction, so $A \cap B \in R$, and we have shown closure of multiplication in $R$. 
+\item (M2): From facts presented in Sally 1.3, we know that intersection is associative.  
+\item (M3): Similarly, we know that intersection is commutative. 
+\item (M4): Take any set $A \in R$, and the set $B \in R$ such that $B = X$. Then, \[\begin{aligned} &A \cap B \\ = &B \cap A \space \dots \text{ from associativity established above}\\ = &\{a \in A| a \in X\}\end{aligned}\] 
+Since $A \subseteq X$, 
+\[\begin{aligned} &\{a \in A| a \in X\} \\ =& \{a \in A\} \\ = & A\end{aligned} \]
+Thus, the multiplicative identity for each set exists and is the set $X$.   
+
+
+\item (D): From the distributive law of intersection over symmetric difference shown in 1.3 of Sally, intersection is distributive over symmetric difference. 
+\end{itemize}
+
+Therefore, \(R = P(X)\) satisfies the axioms required for it to be a
+commutative ring with \(1\). \(R\) is a field when cancellation holds
+for multiplication and it also satisfies (M5). Since the multiplicative
+identity in this set is \(X\), for there to be a multiplicative inverse
+for any set in \(R\), then the intersection of said set with the inverse
+must equal \(X\). This means the intersection of the emptyset with the
+inverse, which will inevitably be the empty set, must equal \(X\), and
+so \(X = \emptyset\). Then, cancellation of multiplication, or
+\(\emptyset \cap \emptyset = \emptyset \cap \emptyset \implies \emptyset = \emptyset\)
+will also hold since there is only one element in \(R\), and thus it
+must be equal to itself.
+
+\hfill \(\Box\)
+
+\hypertarget{exercise-5}{%
+\section{Exercise 5}\label{exercise-5}}
+
+\hypertarget{problem-3.1.5}{%
+\subsection{Problem 3.1.5}\label{problem-3.1.5}}
+
+\emph{Show that the least upper bound of a set is unique, if it exists}
+
+~~~~Proof. Let \(F\) be an ordered field, and \(A\) a non-empty subset
+of \(F\) that is bounded above. Suppose that the least upper bound of
+\(A\) exists. We assume \(L,M\) are both the least upper bound of \(A\).
+Then, \(L, M\) are both upper bounds for \(A\). Furthermore, since \(M\)
+is an upper bound and \(L\) is a least upper bound, by definition,
+\(L \leq M\). Similarly, since \(L\) is an upper bound and \(M\) is a
+least upper bound, \(M \leq L\). From (O1), this would imply that
+\(L = M\). Thus, the least upper bound of a set is unique if it exists.
+
+\hfill \(\Box\)
+
+\hypertarget{exercise-6}{%
+\section{Exercise 6}\label{exercise-6}}
+
+\hypertarget{problem-3.1.11}{%
+\subsection{Problem 3.1.11}\label{problem-3.1.11}}
+
+\emph{Prove that an ordered field has the least upper bound property iff
+it has the greatest lower bound property}
+
+~~~~Suppose \(F\) is an ordered field with the least upper bound
+property. Then, take any nonempty \(A \subseteq F\) that is bounded
+below. Because \(A\) is bounded below, it has a set of lower bounds. Let
+\(B\) be this set. Then, since \(B\) is the set of lower bounds for
+\(A\), by definition, any \(a \in A\) is an upper bound of \(B\). Thus,
+\(B\) is bounded above. Because the field has a least upper bound
+property, and \(B\) is a subset of said field bounded above, \(B\) has a
+least upper bound. Since \(B\) is a set of lower bounds of \(A\),
+\(\sup B\) is a lower bound for \(A\). By definition of supremum, there
+is no lower bound for \(A\) that is greater than \(\sup B\), for if
+there was, it would be an element in \(B\) that is greater than
+\(\sup B\), and so \(\sup B\) would fail to be an upper bound for \(B\).
+To paraphrase, if \(m\) is any lower bound for \(A\), \(m \leq \sup B\).
+Thus, \(\sup B = \inf B\), and any non-empty subset \(A\) of \(F\) has a
+greatest lower bound, giving \(F\) the greatest lower bound property.\\
+\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}With
+analogous reasoning, we can formulate a proof for any \(F\) with the
+greatest lower bound property having the least upper bound property. It
+follows that an ordered field has the least upper bound property if and
+only if it has the greatest lower bound property.
+
+\hfill \(\Box\)
+
+\hypertarget{exercise-7}{%
+\section{Exercise 7}\label{exercise-7}}
+
+\hypertarget{problem-3.1.14}{%
+\subsection{Problem 3.1.14}\label{problem-3.1.14}}
+
+\emph{Suppose that \(A\) and \(B\) are bounded sets in \(\mathbb{R}\).
+Prove or disprove the following:}\\
+
+\begin{enumerate} 
+\item $\sup (A \cup B) = \max\{\sup (A), \sup (B)\}$  
+
+Proof. \linebreak  
+If $\sup A > \sup B$, then $\sup B$ cannot be $\sup(A \cup B)$, because there exists $a \in A$ such that $a > \sup B$, and therefore $a \in A \cup B$ such that $a > \sup B$, and $\sup B$ would not be an upper bound of $A \cup B$. If $\sup B$ was an upper bound of $A \cup B$ and there was no $a \in A$ such that $a > \sup B$, then $\sup B$ would be an upper bound of $A$ and $\sup B < \sup A$, contradicting the fact that $\sup A$ is the least upper bound of $A$. Thus, we know that if $\sup A > \sup B$, $\sup B$ is not a least upper bound of $A \cup B$. In this case, since $\sup A > \sup B$ and for all $b \in B$, $b < \sup B$, then $b < \sup A$. This is also true for all $a \in A$, and so $\sup A$ is an upper bound of $A \cup B$. Since $\sup A$ is the least upper bound of $A$, any upper bound of $A$ is greater than $\sup A$. For any upper bound of $B$, if the upper bound is less than $A$, there exists $a \in A$ such that $a$ is greater than the upper bound, meaning it is not an upper bound for $A \cup B$. Thus, $\sup (A \cup B) = \sup A$. \linebreak
+Similarly, if $\sup A < \sup B$, then $\sup (A \cup B) = \sup B$. Hence, $\sup (A \cup B) = \max\{\sup (A), \sup (B)\}$.  
+
+\hfill $\Box$
+\item \textit{If $A+B = \{a + b | a \in A, b \in B\}$, then $\sup (A + B) = \sup (A) + \sup (B)$}  
+
+Proof. \linebreak
+For all $a \in A$ and $b \in B$, $a \leq \sup A$ and $b \leq \sup B$, implying $a + b \leq \sup A + \sup B$. Thus, $\sup A + \sup B$ is an upper bound of $A + B$.  
+
+Now, take $a_ \epsilon \in A$, $b_\epsilon \in B$ such that $a_\epsilon > \sup A - \frac{\epsilon}{2}$, and $b_\epsilon > \sup B - \frac{\epsilon}{2}$ for any $\epsilon > 0$. We know these exist from the definition of supremum. Then, there would exist $a_\epsilon + b_\epsilon > \sup A + \sup B - \epsilon$, and $\sup A + \sup B - \epsilon$ is not an upper bound of $A+B$. Thus, the least upper bound is $\sup A + \sup B$.  
+\hfill $\Box$
+\item \textit{If the elements of $A$ and $B$ are positive and $A \cdot B = \{ab | a \in A, b \in B\}$, then $\sup (A \cdot B) = \sup A \sup B$.}  
+
+Proof.  
+
+For all $a \in A$ and $b \in B$, $0 < a \leq \sup A$ and $0 < b \leq \sup B$, implying $ab \leq \sup A  \sup B$. Thus, $\sup A \sup B$ is an upper bound of $A \cdot B$.  
+
+Furthermore, take $a_ \epsilon \in A$, $b_\epsilon \in B$ such that $a_\epsilon > \sup A - \sqrt{\epsilon} > 0$, and $b_\epsilon > \sup B - \sqrt{\epsilon} > 0$ for any $\epsilon > 0$. We set $\sup A - \sqrt{\epsilon} > 0$ and $\sup B - \sqrt{\epsilon} > 0$ because the set of $A$ and $B$ are positive real numbers, and for these values to be contained in or be an upper bound of $A$ or $B$, we need them to be positive. We know these exist from the definition of supremum. Then, there would exist $a_\epsilon \cdot b_\epsilon \in A \cdot B$ such that
+\[\begin{aligned} a_\epsilon \cdot b_\epsilon &> \sup A \cdot \sup B - \sqrt{\epsilon}(\sup A + \sup B) + \epsilon \\ \implies a_\epsilon \cdot b_\epsilon &> \sup A \cdot \sup B - \sqrt{\epsilon}[\sup A + \sup B - \sqrt{\epsilon}] \end{aligned}\]
+and $\sup A \cdot \sup B - \sqrt{\epsilon}[\sup A + \sup B - \sqrt{\epsilon}]$ is not an upper bound of $A \cdot B$. 
+Since $\sup A > 0$ and $\sup B - \sqrt{\epsilon} > 0$ and $\epsilon > 0$, we know that $\sqrt{\epsilon}[\sup A + \sup B - \sqrt{\epsilon}] > 0$. We can restate this as $\epsilon '$, and conclude that the least upper bound of $A \cdot B$ is $\sup A \cdot \sup B$.  
+\hfill $\Box$
+
+\item \textit{Formulate the analogous problems for the greatest lower bound.}
+\begin{enumerate} 
+\item $\inf (A \cup B) = \min \{\inf A, \inf B\}$  
+\item If $A+B = \{a + b | a \in A, b \in B\}$, then $\inf (A + B) = \inf (A) + \inf (B)$
+\item If the elements of $A$ and $B$ are positive and $A \cdot B = \{ab | a \in A, b \in B\}$, then $\inf (A \cdot B) = \inf A \inf B$.
+\end{enumerate}
+\end{enumerate}
+
+\hypertarget{exercise-8}{%
+\section{Exercise 8}\label{exercise-8}}
+
+\emph{Suppose that set \(S \subseteq \mathbb{R}\) contains one of its
+upper bounds. Show that this upper bound is the supremum of \(S\)}
+
+~~~~We denote this upper bound to be \(L\). It is given that \(L\) is an
+upper bound of \(S\).\\
+\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}Now,
+for all \(\epsilon > 0\), take \(L - \epsilon\). Then,
+\(L > L - \epsilon\) and \(L \in S\), so \(L - \epsilon\) cannot be an
+upper bound of \(S\). Any upper bound of \(S\) must be at least as great
+as \(L\). We already have that \(L\) is an upper bound, so from here we
+can conclude that \(L\) is the least upper bound of \(S\).
+\hfill \(\Box\)
+
+\end{document}

@@ -1,0 +1,281 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Math 15910: Problem Set 1},
+  pdfauthor={Underland, Jake},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
+\title{Math 15910: Problem Set 1}
+\author{Underland, Jake}
+\date{2021-08-09}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\hypertarget{exercise-1}{%
+\section{Exercise 1}\label{exercise-1}}
+
+\hypertarget{problem-1.2.2}{%
+\subsection{Problem 1.2.2}\label{problem-1.2.2}}
+
+\textbf{\emph{If \(A\) and \(B\) are sets, show that \(A = B\) if and
+only if \(A \subseteq B\) and \(B \subseteq A\).}}
+
+From \(A=B\) we know that for any \(x\),
+\[\text{if } x \in A, \text{ then } x \in B \text{ ... (1)}\] and,
+conversely,
+\[\text{if } x \in B, \text{ then } x \in A \text{ ... (2)}\] From (1),
+by definition we obtain \(A \subseteq B\) and from (2), we obtain
+\(B \subseteq A\). Thus, we have proven
+\[ A = B \implies A \subseteq B \text{ and }B \subseteq A \text{ ... (3)}\]
+Now, suppose \(A \subseteq B\) and \(B \subseteq A\). Then, by
+definition, \(\text{if } x \in A, \text{ then } x \in B\), and
+\(\text{if } x \in B, \text{ then } x \in A\). This is equivalent to
+saying \(A = B\). Thus, we have proven
+\[A \subseteq B \text{ and }B \subseteq A \implies A = B  \text{ ... (4)}\]
+From (3) and (4), we obtain the following:
+\[ A = B \iff A \subseteq B \text{ and }B \subseteq A \] Therefore,
+\(A = B\) if and only if \(A \subseteq B\) and \(B \subseteq A\).
+\hfill \(\Box\)
+
+\hypertarget{problem-1.2.3}{%
+\subsection{Problem 1.2.3}\label{problem-1.2.3}}
+
+\textbf{\emph{Suppose that \(A, B, \text{and } C\) are sets. If
+\(A \subseteq B\) and \(B\subseteq C\), show that \(A \subseteq C\).}}
+
+If \(A \subseteq B\), it follows that for any \(x\),
+\(\text{if } x \in A, \text{ then } x \in B\). If \(B \subseteq C\), it
+follows that \(\text{if } x \in B, \text{ then } x \in C\). Suppose that
+\(x \in A\). Then, since \(A \subseteq B\), \(x \in B\). Furthermore, if
+\(x \in B\), since \(B \subseteq C\), \(x \in C\). Thus, for any
+\(x \in A\) we have \(x \in C\), and we have proven that if
+\(A \subseteq B\) and \(B\subseteq C\), then \(A \subseteq C\).
+\hfill \(\Box\)
+
+\hypertarget{exercise-2}{%
+\section{Exercise 2}\label{exercise-2}}
+
+\hypertarget{problem-1.3.9}{%
+\subsection{Problem 1.3.9}\label{problem-1.3.9}}
+
+\hypertarget{ii.-prove-a-cap-b-cap-c-a-cap-b-cap-c}{%
+\subsubsection{\texorpdfstring{ii. \emph{Prove
+\(A \cap (B \cap C) = (A \cap B) \cap C\)}}{ii. Prove A \textbackslash cap (B \textbackslash cap C) = (A \textbackslash cap B) \textbackslash cap C}}\label{ii.-prove-a-cap-b-cap-c-a-cap-b-cap-c}}
+
+Take \(x \in X\). Then, by definition of intersection,
+\[x \in A \cap (B \cap C) \iff x \in A \text{ and }x \in B \cap C\]
+Furthermore, \[x \in (B \cap C) \iff x \in B \text{ and }x \in C\] Thus,
+we have\\
+\[ x \in A \cap (B \cap C) \iff x \in A \text{ and }x \in B \text{ and }x \in C \text{ ... (1)}\]
+By the definition of intersection,
+\[ x \in A \text{ and }x \in B \iff x \in (A \cap B) \text{ ... (2)}\]
+From (1) and (2), we have
+\[x \in A \cap (B \cap C) \iff x \in (A \cap B) \text{ and }x \in C\] By
+the definition of intersection,
+\[x \in (A \cap B) \text{ and }x \in C \iff x \in (A \cap B) \cap C\]
+Therefore, \(x \in A \cap (B \cap C) \iff x \in (A \cap B) \cap C\) and
+we have proven that \(A \cap (B \cap C) = (A \cap B) \cap C\), or in
+other words, associativity exists for intersection. \hfill \(\Box\)
+
+\hypertarget{ix.-prove-a-triangle-b-varnothing-iff-a-b}{%
+\subsubsection{\texorpdfstring{ix. \emph{Prove
+\(A \triangle B = \varnothing \iff A = B\)}}{ix. Prove A \textbackslash triangle B = \textbackslash varnothing \textbackslash iff A = B}}\label{ix.-prove-a-triangle-b-varnothing-iff-a-b}}
+
+Suppose \(A \triangle B = \varnothing\). Then by definition of symmetric
+difference,\\
+\[A \triangle B = (A \backslash B) \cup (B \backslash A) = \varnothing\]
+Note that if the union of two sets is an empty set, then the two sets
+must also be empty. This is clear from the definition of union
+\(A \cup B = \{x \in X | x \in A \text{ or } x \in B \}\). Suppose that
+\(A\) or \(B\), or both, is a nonempty set. Then, there exists at least
+one \(\{x \in X | x \in A \text{ or } x \in B \}\). Thus, \(A \cup B\)
+would be nonempty also. Since we have proven the contrapositive, it
+holds that if the union of two sets is an empty set, then the two sets
+must also be empty.\\
+From here it follows that
+\[(A \backslash B) \cup (B \backslash A) = \varnothing \\ \implies (A \backslash B) = \varnothing \text{ and }(B \backslash A ) = \varnothing\]
+Take \((A \backslash B) = \varnothing\). Suppose there is an element
+\(x\) such that \(x \in A\) and \(x \notin B\). By definition,
+\(x \in A \text{ and }x \notin B \implies x \in A \backslash B\), but
+this contradicts with \((A \backslash B) = \varnothing\). Therefore,
+such an \(x\) does not exist, meaning for all \(x \in A\), \(x \in B\).
+Thus, we obtain \(A \subseteq B\).\\
+Now, take \((B \backslash A) = \varnothing\). Through similar reasoning,
+we obtain \(B \subseteq A\).\\
+Since \(A \subseteq B\) and \(B \subseteq A\), \(A = B\). We have thus
+proven that \(A \triangle B = \varnothing \implies A = B\).\\
+Now suppose \(A = B\). From earlier proofs, we know that this implies
+\(A \subseteq B\) and \(B \subseteq A\). From the definition of
+\(A \subseteq B\), we know that for all \(x \in A\), \(x \in B\) and can
+thus infer that \((A \backslash B) = \varnothing\). Similarly, we can
+infer that \((B \backslash A) = \varnothing\). Since
+\[(A \backslash B) = (B \backslash A) = \varnothing \\ \implies(A \backslash B) \cup (B \backslash A) = \varnothing \\ \implies A \triangle B = \varnothing\]
+Thus, we have proven that
+\(A = B\implies A \triangle B = \varnothing\).\\
+From the above, we have shown
+\(A \triangle B = \varnothing \iff A = B\). \hfill \(\Box\)
+
+\hypertarget{xi.-prove-a-cup-b-cap-c-a-cup-b-cap-a-cup-c}{%
+\subsubsection{\texorpdfstring{xi. \emph{Prove
+\(A \cup (B \cap C) = (A \cup B) \cap (A \cup C)\)}}{xi. Prove A \textbackslash cup (B \textbackslash cap C) = (A \textbackslash cup B) \textbackslash cap (A \textbackslash cup C)}}\label{xi.-prove-a-cup-b-cap-c-a-cup-b-cap-a-cup-c}}
+
+Take \(x \in X\). Then \[x \in A \cup (B \cap C)\] By definition of
+union, \[\iff x \in A \text{ or } x \in (B \cap C)\] By definition of
+intersection,
+\[ \iff x \in A \text{ or } (x \in B \text{ and }x \in C)\]
+\[ \iff (x \in A \text{ or } x \in B) \text{ and } (x \in A \text{ or } x \in C)\]
+By definition of union,
+\[\iff (x \in A \cup B) \text{ and } (x \in A \cup C)\] By definition of
+intersection, \[\iff x \in (A \cup B) \cap (A \cup C)\] Thus, we have
+proven \(A \cup (B \cap C) = (A \cup B) \cap (A \cup C)\).
+
+\hfill \(\Box\)
+
+\hypertarget{xii.-prove-a-cap-bmathsfc-amathsfc-cup-bmathsfc}{%
+\subsubsection{\texorpdfstring{xii. \emph{Prove
+\((A \cap B)^\mathsf{c} = A^\mathsf{c} \cup B^\mathsf{c}\)}}{xii. Prove (A \textbackslash cap B)\^{}\textbackslash mathsf\{c\} = A\^{}\textbackslash mathsf\{c\} \textbackslash cup B\^{}\textbackslash mathsf\{c\}}}\label{xii.-prove-a-cap-bmathsfc-amathsfc-cup-bmathsfc}}
+
+Let \(x \in X\). Then \[x \in (A \cap B)^\mathsf{c}\] By definition of
+complements, \[\iff x \in X \backslash (A \cap B)\] By definition of
+difference,
+\[\iff x \notin (A \cap B) \text{ ... (since } x \in X \text{ is already given)}\]
+\(x \notin (A \cap B)\) is the negation of \(x \in (A \cap B)\), which
+is by definition tantamount to \(x \in A \text{ and } x \in B\). It
+follows that the negation would be
+\(x \notin A \text{ or } x \notin B\). Thus,
+\[x \notin (A \cap B) \iff x \notin A \text{ or } x \notin B\] By
+definition of difference,
+\[\iff x \in X \backslash A \text{ or } x \in X \backslash B\] By
+definition of complements,
+\[\iff x \in A^\mathsf{c} \text{ or } x \in B^\mathsf{c}\] By definition
+of union, \[\iff x \in A^\mathsf{c} \cup B^\mathsf{c}\] Therefore, we
+have proven that
+\((A \cap B)^\mathsf{c} = A^\mathsf{c} \cup B^\mathsf{c}\).
+
+\hfill \(\Box\)
+
+\hypertarget{exercise-3}{%
+\section{Exercise 3}\label{exercise-3}}
+
+\textbf{\emph{Express each of the following statement as a conditional
+state- ment in ''if-then'' form. For each statement, write the negation,
+the contrapositive and the converse. Your answers should use clear
+English, not logical symbols.}}
+
+\hypertarget{a-every-odd-number-is-prime.}{%
+\subsection{(a) Every odd number is
+prime.}\label{a-every-odd-number-is-prime.}}
+
+\begin{itemize}
+\tightlist
+\item
+  if - then: If a number is odd, then it is prime.\\
+\item
+  negation: A number is odd and it is not prime.\\
+\item
+  contrapositive: If a number is not prime, then it is not odd.\\
+\item
+  converse: If a number is prime, then it is odd.
+\end{itemize}
+
+\hypertarget{b-passing-the-test-requires-solving-all-the-problems.}{%
+\subsection{(b) Passing the test requires solving all the
+problems.}\label{b-passing-the-test-requires-solving-all-the-problems.}}
+
+\begin{itemize}
+\tightlist
+\item
+  if - then: If one is to pass the test, then one must solve all the
+  problems.\\
+\item
+  negation: Someone passed the test but did not solve all the
+  problems.\\
+\item
+  contrapositive: If one does not solve all the problems, then they will
+  not pass the test.\\
+\item
+  converse: If one solves all the problems, then they will pass the
+  test.
+\end{itemize}
+
+\hypertarget{c-being-first-in-line-guarantees-getting-a-good-seat.}{%
+\subsection{(c) Being first in line guarantees getting a good
+seat.}\label{c-being-first-in-line-guarantees-getting-a-good-seat.}}
+
+\begin{itemize}
+\tightlist
+\item
+  if - then: If one is first in line, then they are guaranteed a good
+  seat.\\
+\item
+  negation: Someone was first in line but was not guaranteed a good
+  seat.\\
+\item
+  contrapositive: If one is not guaranteed a good seat, then they are
+  not first in line.\\
+\item
+  converse: If one is guaranteed a good seat, then they are first in
+  line.
+\end{itemize}
+
+\end{document}

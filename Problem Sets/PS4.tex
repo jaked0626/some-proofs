@@ -1,0 +1,359 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Math 15910: Problem Set 4},
+  pdfauthor={Underland, Jake},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
+\title{Math 15910: Problem Set 4}
+\author{Underland, Jake}
+\date{2021-08-09}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\hypertarget{exercise-1}{%
+\section{Exercise 1}\label{exercise-1}}
+
+\emph{Show that if \(A\) and \(B\) are countably infinite sets, then
+there exists a bijection between their power sets \(P(A)\) and
+\(P(B)\).}
+
+~~~~Since \(A\) and \(B\) are countably infinite, there exist bijective
+functions \(f:A \to \mathbb{N}\), \(g:B \to \mathbb{N}\). Then,
+\(g^{-1} \circ f\) is a bijective function between \(A\) and \(B\).
+Thus, we know that \(A\) and \(B\) are bijective. Let us denote
+\(h: A \to B\) to be an arbitrary bijection. Now think of the function
+\(q: P(A) \to P(B)\) which takes any element of \(P(A)\),
+\(\{a_1, a_2, ... a_n\} \subseteq A\), and returns
+\(\{h(a_1), h(a_2), ... , h(a_n)\} = \{b_1, b_2, ..., b_n\} \subseteq B\).
+
+~~~~Take \(\{a_1, ..., a_n\}, \{a'_1, ..., a'_n\} \in P(A)\).\\
+If,\\
+\[\begin{aligned} q(\{a_1, a_2, ..., a_n\}) &=  q(\{a'_1, a'_2,..., a'_n\}) \\ \implies \{h(a_1), h(a_2), ..., h(a_n)\}) &=  \{h(a'_1), h(a'_2),..., h(a'_n)\} \end{aligned}\]
+
+From the definition of equality of sets, and without loss of
+generality,\\
+\[h(a_1) = h(a'_1), h(a_2) = h(a'_2) ..., h(a_n) = h(a'_n)\] Since \(h\)
+is bijective,\\
+\[ \begin{aligned} \implies \{h^{-1}(h(a_1)), h^{-1}(h(a_2)), ..., h^{-1}(h(a_n))\}) &=  \{h^{-1}(h(a'_1)), h^{-1}(h(a'_2)),..., h^{-1}(h(a'_n))\} \\ \implies \{a_1, a_2, ..., a_n\} &=  \{a'_1, a'_2,..., a'_n\} \end{aligned} \]
+From the definition of equality of sets, and without loss of
+generality,\\
+\[a_1 = a'_1, a_2 = a'_2 ..., a_n = a'_n\] Thus, \(q\) is injective.
+
+~~~~Now, take \(\{b_1, \dots, b_n \} \in P(B)\). We want
+\(\{a_1, \dots, a_n \}\in P(A)\) such that
+\(q(\{a_1, \dots, a_n \}) = \{b_1, \dots, b_n \}\).\\
+\[ \begin{aligned} q(\{a_1, ..., a_n\}) &= \{b_1, \dots, b_n \} \\
+\implies \{h(a_1), ..., h(a_n)\}) &= \{b_1, \dots, b_n \} \\ \implies \{a_1, \dots, a_n \} &= \{h^{-1}(b_1), \dots, h^{-1}(b_n) \} \end{aligned} \]
+Thus, given \(\{b_1, \dots, b_n \} \in P(B)\),
+\(q(\{h^{-1}(b_1), \dots, h^{-1}(b_n) \}) = \{b_1, \dots, b_n \}\).
+Hence, \(q\) is surjective.\\
+\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}It
+follows that \(q\) is bijective. With this, we have shown that there
+exists a bijection between \(P(A)\) and \(P(B)\) given two countably
+infinite sets \(A\) and \(B\).
+
+\hfill \(\Box\)
+
+\hypertarget{exercise-2}{%
+\section{Exercise 2}\label{exercise-2}}
+
+\hypertarget{problem-1.8.31}{%
+\subsection{Problem 1.8.31}\label{problem-1.8.31}}
+
+\emph{Suppose that \(A\) is a non-empty set. Show that \(P(A)\) is in
+one to one correspondence with the set of all functions from \(A\) to
+\(\{0, 1\}\)}
+
+~~~~For every subset \(X \subseteq A\), we define a function
+\(f_X : X \to \{0,1\}\) such that for every \(a \in A\),
+\[f_X(a) = \begin{cases} 1, \text{    if } a\in X \\ 0, \text{    if } a \notin X \end{cases}\]
+Now, we define the function \(F: P(A) \to \{f|f:A \to \{ 0,1\}\}\) that
+takes a subset \(B \in P(A)\) and returns \(f_B\) from the set of
+functions \(\{f|f:A \to \{ 0,1\}\}\).\\
+\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}Suppose
+\(B, C \subseteq A\) and \(F(B) = F(C)\). Then,
+\[ \begin{aligned} f_B &= f_C \\
+\implies f_B(a) &= f_C(a) \space \space \space \text{    for every } a \in A\end{aligned}\]
+Since \(B, C \subseteq A\), there does not exist any element within them
+that is not also in \(A\). If \(f_B(a) = f_C(a) = 1\), then
+\(a \in B, C\). If \(f_B(a) = f_C(a) = 0\), then \(a \notin B, C\). By
+the definition of set equality, \(B = C\). Thus, \(F\) is injective.\\
+\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}Now,
+for every \(f_X \in \{f| f:A \to \{ 0,1\}\}\) there exists
+\(X \subseteq A\) such that \(F(X) = f_X\). \[F(X) = f_X\]
+\[\implies X = \{a \in A| f_X(a) = 1\}\] Thus, we have that for every
+\(f_X \in \{f| f:A \to \{ 0,1\}\}\), \(F(\{a\in A|f_X(a)=1\}) = f_X\),
+and \(F\) is surjective.\\
+\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}It
+follows that \(F\) is bijective, and \(P(A)\) is in one to one
+correspondence with the set of all functions from \(A\) to \(\{0, 1\}\).
+
+\hfill \(\Box\)
+
+\hypertarget{exercise-3}{%
+\section{Exercise 3}\label{exercise-3}}
+
+\emph{Prove that a union \(\cup _{n \in \mathbb{N}} A_n\) where sets
+\(A_n\) have the cardinality of the set of real numbers, has the
+cardinality of the set of real numbers.}
+
+~~~~We know that there is a bijection between \((0, 1)\) and
+\(\mathbb{R}\), so \((0, 1)\) has the same cardinality as
+\(\mathbb{R}\). In the last homework, I showed that there exists a
+bijection \(f: [0, 1) \to (0, 1)\), defined as
+\[f(x) = \begin{cases} \frac{n+1}{n+2} \space \space \text{  if } x = \frac{n}{n+1} \text{ for } n \in \mathbb{N}_0 \\ x \space \space\text{ for all other } x \in [0,1) \end{cases}\]
+Thus, \([0, 1)\) has the same cardinality as the set of real numbers.
+Similarly, we can define functions for \([0,1), [1, 2), ..., [n-1, n)\)
+that take the form
+\[f_n(x) = \begin{cases} \frac{m+1}{m+2} \space \space \text{  if } x = n - 1 +\frac{m}{m+1} \text{ for } m \in \mathbb{N}_0 \\ x - n + 1 \space \space\text{ for all other } x \in [n -1,n) \end{cases}\]
+which are all bijections with \((0,1)\), and thus have equal cardinality
+to the set of real numbers. Since each \(A_n\) has the cardinality of
+the set of real numbers, and the sets \([0,1), [1, 2), ...,[n-1, n)\)
+also have the same cardinality, there exists a bijection between \(A_n\)
+and \([n-1, n)\). We now show that there is an injection from
+\(\cup _{n \in \mathbb{N}}A_n\) to \([0, n)\) and an injection from
+\([0, n)\) to \(A_n\).\\
+\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}Since
+for all \(A_i\) for \(1 \leq i \leq n\), \(A_i\) is bijective with
+\([i - 1, i)\), there exists an injection in this direction. If all
+\(A_i\) are mutually disjoint, they would each have an injection from
+\(A_i\) to \([i - 1, i)\), and thus the union
+\(\cup _{n \in \mathbb{N}}A_n\) will inject to \([0, n)\), which is the
+union of all \([i, i-1)\). If the sets are not mutually disjoint, then
+each \(a \in \cup _{n \in \mathbb{N}}A_n\) will inject to the
+\([i, i-1)\) corresponding to the first \(A_i\) in which \(a\) appears.
+It is clear that this is an injection, and thus there is an injection
+from \(\cup _{n \in \mathbb{N}}A_n\) to \([0, n)\).\\
+\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}Next,
+since \([0, 1)\) is bijective to \(A_1\), there exists an interjection
+from \([0, 1)\) to \(A_1\). Then, by multiplying all elements in
+\([0, 1)\) by \(n\), we can create an injection from \([0, n)\) to
+\(A_1\). Since \(A_1 \in \cup _{n \in \mathbb{N}}A_n\), it follows that
+there exists an injection from \([0, n)\) to \(A_n\).\\
+\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}Since
+there is an injection from \(\cup _{n \in \mathbb{N}}A_n\) to \([0, n)\)
+and an injection from \([0, n)\) to \(A_n\), we can invoke the
+Schroeder-Bernstein theorem to conclude that there exists a bijection
+between \(\cup _{n \in \mathbb{N}}A_n\) and \([0, n)\). It is easy to
+see that there exists a bijective function \(f: [0, 1) \to [0, n)\) such
+that \[f(x) = nx\] It is trivial to prove that this function is
+bijective. Thus, we know that {[}0, n) has the same cardinality as
+\(\mathbb{R}\).\\
+\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}From
+here, we can conclude that a union \(\cup _{n \in \mathbb{N}} A_n\)
+where sets \(A_n\) have the cardinality of the set of real numbers, has
+the cardinality of the set of real numbers.
+
+\hfill \(\Box\)
+
+\hypertarget{exercise-4}{%
+\section{Exercise 4}\label{exercise-4}}
+
+\emph{Prove that the set of irrational numbers has the same cardinality
+as the set of real numbers.}
+
+~~~~Consider the function
+\[f(x) = \begin{cases} \arctan{x} \space \space \space \text{ when } \arctan{x} \in \mathbb{R} \backslash \mathbb{Q} \\ \arctan{x + 10 \sqrt{2}} \space \space \space \text{ when } \arctan{x} \in \mathbb{Q} \end{cases}\]
+Given \(x \in \mathbb{R}\), this function produces an irrational number,
+so this function is well defined.\\
+\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}Now,
+take \(x_1, x_2 \in \mathbb{R}\). Suppose \(f(x_1) = f(x_2)\). Then,
+either \(\arctan{x_1} \text{ and } \arctan{x_2}\) are both rational or
+both irrational. If \(x_1\) was rational and \(x_2\)was irrational, then
+\(\arctan{x_1}+10\sqrt{2} \neq \arctan{x_2}\) since the maximum possible
+value of \(\arctan x\) is \(\frac{\pi}{2}\) and the minimum is
+\(-\frac{\pi}{2}\), making \(\arctan{x_1}+10\sqrt{2} > \arctan{x_2}\).\\
+\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}When
+\(\arctan{x_1} \text{ and } \arctan{x_2}\) are both rational,
+\[f(x_1) = f(x_2)\]
+\[\implies \arctan{x_1}+10\sqrt{2} = \arctan{x_2}+10\sqrt{2}\]
+\[\implies \arctan{x_1} = \arctan{x_2}\]
+\[\implies \tan(\arctan{x_1}) = \tan(\arctan{x_2})\]
+\[\implies x_1 = x_2\] ~~~~When
+\(\arctan{x_1} \text{ and } \arctan{x_2}\) are both rational,
+\[ \begin{aligned} f(x_1) &= f(x_2) \\
+\implies \arctan{x_1} &= \arctan{x_2} \\
+\implies \tan(\arctan{x_1}) &= \tan(\arctan{x_2}) \\
+\implies x_1 &= x_2 \end{aligned} \] ~~~~Thus, \(f\) is an interjection.
+Since \(\mathbb{R} \backslash \mathbb{Q} \subseteq \mathbb{R}\), it is
+trivial to prove that there exists an injection
+\(g: \mathbb{R} \backslash \mathbb{Q} \to \mathbb{R}\) (the identity
+function would be such an injection).\\
+\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}Hence,
+we can invoke the Schroeder-Bernstein theorem to conclude that there
+exists a bijection between the set of irrational numbers and the set of
+real numbers, and that they have the same cardinality.
+
+\hfill \(\Box\)
+
+\hypertarget{exercise-5}{%
+\section{Exercise 5}\label{exercise-5}}
+
+\hypertarget{problem-1.6.2}{%
+\subsection{Problem 1.6.2}\label{problem-1.6.2}}
+
+\emph{Let \(\mathcal{R}\) be a relation on \(X\) that satisfies}\\
+\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}(a.)
+\emph{For all \(a \in X, (a, a) \in \mathcal{R}\), and}\\
+\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}(b.)
+\emph{for
+\(a, b, c \in X, \text{ if } (a, b), (b, c) \in \mathcal{R}, \text{ then } (c, a) \in \mathcal{R}\)}
+
+~~~~From the assumption (a.), we already have reflexivity. Now, take
+\((a, b) \in \mathcal{R}\). From (a.), we have
+\((b, b) \in \mathcal{R}\). From (b.), if \((a, b) \in \mathcal{R}\), we
+can say \[(a, b), (b, b) \in \mathcal{R}\]
+\[\implies (b, a) \in \mathcal{R}\] Thus, we obtain symmetry. With
+symmetry, it can be easily shown from (b.) that
+\[(a, b), (b, c) \in \mathcal{R} \implies (c, a) \in \mathcal{R}\]
+\[(c, a) \in \mathcal{R} \implies (a, c) \in \mathcal{R}\] Thus,
+\[(a, b), (b, c) \in \mathcal{R} \implies (a,c ) \in \mathcal{R}\]
+~~~~Therefore, we have established reflexivity, symmetry, and
+transitivity in \(\mathcal{R}\), and have proven that \(\mathcal{R}\) is
+an equivalence relation.
+
+\hfill \(\Box\)
+
+\hypertarget{exercise-6}{%
+\section{Exercise 6}\label{exercise-6}}
+
+\hypertarget{problem-1.6.14}{%
+\subsection{Problem 1.6.14}\label{problem-1.6.14}}
+
+\emph{Take a set \(X\) and break it up into pairwise disjoint non-empty
+subsets whose union is all of \(X\). Then, for \(a, b \in X\), define
+\(a \sim b\) if \(a\) and \(b\) are in the same subset. Prove that this
+is an equivalence relation}
+
+~~~~We denote these subsets as \(Y_i\). Suppose \(a \in Y_a\). Then,
+since \(a \in Y_a\), \(a \sim a\) and we have reflexivity. If
+\(a \sim b\), then \(a, b \in Y_a\). However, this would also imply
+\(b \sim a\). Thus, we have symmetry. If \(a \sim b\), then
+\(a, b \in Y_a\). Furthermore, if \(b \sim c\), then \(b, c \in Y_b\).
+However, since \(Y_i\)'s are pairwise disjoint, it follows from
+\(b \in Y_a, b \in Y_b\) that \(Y_a = Y_b\). thus, \(a, c \in Y_a\) and
+\(a \sim c\). From here, we have transitivity. Thus, the above is an
+equivalence relation.
+
+\hfill \(\Box\)
+
+\hypertarget{exercise-7}{%
+\section{Exercise 7}\label{exercise-7}}
+
+\emph{Let \(A\) be a set, and \(P(A)\) its power set. For
+\(x,y\in P(A)\) let \(x \sim y\) if \(x\) and \(y\) have the same
+cardinality. Prove that \(\sim\) is an equivalence relation.}\\
+\emph{Compute the equivalence classes when \(A = \{1, 2, 3\}\).}
+
+~~~~Take \(x \in P(A)\). Then, since \(|x| = |x|\), \(x \sim x\). Thus,
+\(\sim\) has reflexivity. For \(x, y \in P(A)\), if \(x \sim y\), then
+\(|x| = |y|.\) If \(y \sim x\), then \(|y| = |x|\). Thus,
+\(x \sim y \implies y \sim x\). Hence, we have symmetry. If
+\(x \sim y\), then \(|x| = |y|\). Furthermore, if \(y \sim z\), then
+\(|y| = |z|\). It follows that \(|x| = |z|\), and \(x \sim z\). From
+here, we have transitivity. Thus, the above is an equivalence
+relation.\\
+\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}The
+equivalence classes for when \(A = \{1, 2, 3\}\) are as follows:\\
+
+\begin{itemize}
+\item $\{x \in P(A)| |x| = 0\} = \{\emptyset\}$  
+\item $\{x \in P(A)| |x| = 1\} = \{\{1\}, \{2\}, \{3\}\}$  
+\item $\{x \in P(A)| |x| = 2\} = \{\{1, 2\}, \{1, 3\}, \{2, 3\}\}$  
+\item $\{x \in P(A)| |x| = 3\} = \{\{1, 2, 3\}\}$  
+\end{itemize}
+
+\hfill \(\Box\)
+
+\hypertarget{exercise-8}{%
+\section{Exercise 8}\label{exercise-8}}
+
+\hypertarget{problem-1.6.15}{%
+\subsection{Problem 1.6.15}\label{problem-1.6.15}}
+
+\emph{We consider the set
+\(F = \{\{a, b\}|a, b\in \mathbb{Z} \text{ and }b \neq 0\}\). For
+\((a,b),(c,d) \in F\), we define \((a,b) \sim (c,d)\) if \(ad = bc\).
+Thus, for instance, \((2,3) \sim (8, 12) \sim (-6, -9)\).}\\
+\emph{Show that \(\sim\) is an equivalence relation on \(F\)}
+
+~~~~Take \((x, y) \in F\). Then, it is obvious that \(xy = xy\), so
+\((x, y) \sim (x, y)\). So, \(\sim\) is reflexive. Now, take
+\((x_1, y_1), (x_2, y_2) \in F\).
+\[(x_1, y_1) \sim (x_2, y_2) \implies x_1y_2 = x_2y_1\] Since equality
+\(=\) is an equivalence relation,
+\[\implies x_2y_1=x_1y_2 \implies (x_2, y_2) \sim (x_1, y_1)\] Hence, we
+have symmetry. Assume \((x, y) \sim (q, r)\) and hence \(xr = yq\).
+Furthermore, assume \((q,r) \sim (s,t)\) and hence \(qt = rs\). Then,
+\[ \begin{aligned} xr &= yq \\
+\implies xr * t &= yq * t \\
+\implies xrt &= yqt \end{aligned} \] From \(qt = rs\),
+\[\implies xrt = yrs\] Since \(r \neq 0\), \[\implies xt = ys\]
+\[\implies (x, y) \sim (s, t)\] From here, we have
+\((x, y) \sim (q, r), (q, r) \sim (s, t) \implies (x, y) \sim (s, t)\).
+Thus, \(\sim\) is transitive, and is an equivalence relation.
+
+\hfill \(\Box\)
+
+\end{document}

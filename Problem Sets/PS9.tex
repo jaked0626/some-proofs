@@ -1,0 +1,208 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Math 15910: Problem Set 9},
+  pdfauthor={Underland, Jake},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
+\title{Math 15910: Problem Set 9}
+\author{Underland, Jake}
+\date{2021-08-09}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\hypertarget{exercise-1}{%
+\section{Exercise 1}\label{exercise-1}}
+
+\hypertarget{problem-3.10.25}{%
+\subsection{Problem 3.10.25}\label{problem-3.10.25}}
+
+\textit{Suppose that a series $\sum ^ \infty _{n=1} a_n$ converges. Show that $\lim _{n\to \infty}=0$.}
+
+~~~~Proof. Since \(\sum ^ \infty _{n=1} a_n\) converges, we know that it
+is Cauchy, and that \(\forall \epsilon > 0, \exists N \in \mathbb{N}\)
+such that \(\forall n, m > N,\) the below holds:
+\[|\sum ^n _{k=m+1} a_k| < \epsilon \] ~~~~Now, let
+\(\epsilon = \frac{\epsilon}{2}\) and \(n, m > N\) such that the above
+holds. Then, the above also holds for \(n - 1, m\), assuming
+\(n-1 > m > N\). Thus, we have \[\begin{aligned} 
+|\sum ^n _{k=m+1} a_k| &<  \frac{\epsilon}{2} \\
+|\sum ^{n-1} _{k=m+1} a_k| &<  \frac{\epsilon}{2} \\
+\implies |\sum ^n _{k=m+1} a_k - \sum ^{n-1} _{k=m+1} a_k| = |a_n| &< |\sum ^n _{k=m+1} a_k|+|\sum ^{n-1} _{k=m+1} a_k|<\epsilon \\
+|a_n| &<\epsilon
+\end{aligned}\] ~~~~Thus, \(\lim _{n\to \infty}=0\).
+
+\hfill \(\Box\)
+
+\hypertarget{exercise-2}{%
+\section{Exercise 2}\label{exercise-2}}
+
+\begin{enumerate}
+\item  \textit{Prove the Comparison Test.}  
+
+Proof. Since $a_n>0$ for $n \in \mathbb{N}$ and $\sum ^\infty _{n=1} a_n$ converges, from the monotone criterion, we know that $(A_k)_{k \in \mathbb{N}}$ is bounded, where $A_k$ represents the partial sum of $a_n$. Then, since $|b_n| \leq a_n$ for all $n$, \[|B_k| = \sum^k_{n=1}|b_n| \leq \sum^k_{n=1}a_n = A_n \\ \implies (|B_k|)_{k\in\mathbb{N}} \space \text{ is bounded}\]
+Thus, $\sum^\infty_{n=1}|b_n|$ converges and $\sum^\infty_{n=1}b_n$ does too. 
+  
+\item \textit{If the series $\sum^\infty_{n=1}a_n$ converges to $s$ and $c$ is any constant, show that the series $\sum^\infty_{n=1}ca_n$ converges to $cs$.}  
+  
+Proof. Since $c$ is a constant, 
+\[C_k = \sum^k_{n=1}ca_n = c\sum^k_{n=1}a_n = c A_k\]
+Thus, $(C_k)_{k\in\mathbb{n}} = (cA_k)_{k\in\mathbb{n}}$. Since $(A_k)_{k\in\mathbb{n}}$ is a convergent sequence whose limit is zero, following the easily proven limit law of multiplication by scalar.  
+  
+\item \textit{Suppose that $\sum ^ \infty _{n=1} a_n$ and $\sum ^ \infty _{n=1} b_n$ are infinite series. Suppose that $a/n>0$ and $b_n > 0$ for $n\in\mathbb{N}$ and $\lim _{n\to\infty}a_n / b_n = c > 0$. Show that $\sum ^ \infty _{n=1} a_n$ converges iff  $\sum ^ \infty _{n=1} b_n$ converges.}  
+  
+Proof. From $\lim _{n\to\infty}a_n / b_n = c > 0$, we have for all $\epsilon > 0$ there is $N \in \mathbb{N}$ such that for  all $n > N$, 
+\[\begin{aligned}
+&|\frac{a_n}{b_n} - c| < \epsilon \\
+\implies-\epsilon < &\frac{a_n}{b_n} - c < \epsilon\\
+\implies  -\epsilon + c< &\frac{a_n}{b_n} < \epsilon + c \\
+\implies b_n(-\epsilon + c) < &a_n < b_n(\epsilon + c)
+\end{aligned}\]
+Thus, when $b_n$ converges, from (2.), $b_n(\epsilon + c)$ converges, and since that bounds $a_n$ above, $a_n$ converges. Similarly, when $a_n$ converges, $b_n(-\epsilon + c)$ converges and hence $b_n$ converges. 
+\end{enumerate}
+
+\hfill \(\Box\)
+
+\hypertarget{exercise-3}{%
+\section{Exercise 3}\label{exercise-3}}
+
+\hypertarget{problem-3.10.2.11-ii}{%
+\subsection{Problem 3.10.2.11 (ii)}\label{problem-3.10.2.11-ii}}
+
+\textit{if $p \in \mathbb{R}$ and $p < 1$, show that $\sum ^ \infty _{n = 1} 1/{n^p}$ diverges.}
+
+~~~~Proof. When \(p = 1\), we have the harmonic series. We also have
+that \(1/n < 1/n^p\) for all \(n\) when \(p < 1\). The harmonic series
+diverges, and from the comparison test,
+\(\sum ^ \infty _{n = 1} 1/{n^p}\) diverges as well.
+
+\hfill \(\Box\)
+
+\hypertarget{exercise-4}{%
+\section{Exercise 4}\label{exercise-4}}
+
+\textit{Prove the alternating series test: Let $(b_n)$ be a non-increasing sequence where $b_n\geq 0$ for all $n\in\mathbb{N}$ and $\lim _{n\to\infty} b_n = 0$. Show that the series $\sum ^ \infty _{n = 1} (-1)^{n+1}b_n$ converges.}
+
+Proof. \[\begin{aligned} 
+S_{2k} &= b_1 - b_2 + b_3 - b_4 ...  b_{2k-1} - b_{2k} \\ 
+&= (b_1 - b_2) + (b_3 - b_4) ... + (b_{2k-1} - b_{2k})
+\end{aligned}\] Since \(b_n\) is nondecreasing, all
+\((b_n - b_{n+1}) \geq 0\), and thus \((S_{2k})_{k\in\mathbb{N}}\) is
+non-decreasing.\\
+\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}Since
+\(\lim _{n\to\infty} b_n = 0\),
+\[ \lim  _{k\to\infty} b_{2k-1} - b_{2k} = 0 - 0 = 0 \] So
+\((S_{2k})_{k\in\mathbb{N}}\) is bounded above.\\
+\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}From
+the monotone criterion, \(S_{2k} \to S\) for some \(S\in\mathbb{R}\).
+\[S_{2k+1} = S_{2k} + b_{2 k + 1}\]
+\[\implies \lim _{k\to\infty} S_{2k+1} = \lim _{k\to\infty}S_{2k} + b_{2 k + 1} = S + 0 = S\]
+Thus, for all \(S_k\), \(\lim _{k\to\infty} S_k = S\). Because the sum
+of partials converges, \(\sum ^ \infty _{n = 1} (-1)^{n+1}b_n\)
+converges as well.
+
+\hfill \(\Box\)
+
+\hypertarget{exercise-5}{%
+\section{Exercise 5}\label{exercise-5}}
+
+\textit{Complete the proof that every rearrangement of the absolutely convergent series converges to the same sum.}
+
+~~~~Proof.
+\[\sum ^ \infty _ {n=1} a_n = \sum ^ \infty _ {n=1} a_n ^ + - \sum ^ \infty _ {n=1} a_n ^ -\]
+By factoring the negative sign in to the summation, we get
+\[\sum ^ \infty _ {n=1} a_n = \sum ^ \infty _ {n=1} a_n ^ + + \sum ^ \infty _ {n=1} - a_n ^ -\]
+Since \(a_n ^- = -a_n\) for \(a_n < 0\),
+\[\sum ^ \infty _ {n=1} - a_n ^ - = \sum _{a_n < 0} a_n\] Similarly, by
+definition, \[\sum a_n ^ + = \sum _{a_n \geq 0} a_n\] Since all three
+sums converge, we can treat them as finite sums and reorder them. From
+here, we have \[\begin{aligned} 
+\sum _{a_n \geq 0} a_n &+ \sum _{a_n < 0} a_n \\
+= &\sum _ {n = 1} ^ \infty a_n
+\end{aligned}\] And thus,
+\[\sum ^ \infty _ {n=1} a_n = \sum ^ \infty _ {n=1} a_n ^ + - \sum ^ \infty _ {n=1} a_n ^ -\]
+
+\hfill \(\Box\)
+
+\hypertarget{bonus}{%
+\section{Bonus}\label{bonus}}
+
+\textit{Show that $\sum^\infty_{n=1}\frac{(-1)^{n+1}}{n} = \ln 2$}
+
+\[S_{2k}=
+\frac{1}{1} - \frac{1}{2} + \frac{1}{3} - \frac{1}{4} ... +\frac{1}{2k-1} - \frac{1}{2k}\]
+\[ = \frac{1}{1} + \frac{1}{2} + \frac{1}{3} + \frac{1}{4} ... +\frac{1}{2k-1} + \frac{1}{2k} 
+- 2(\frac{1}{2} + \frac{1}{4} + \frac{1}{6} ... +\frac{1}{2k-1} + \frac{1}{2k})\]
+\[= \frac{1}{k+1} + \frac{1}{k+2} + ... + \frac{1}{2k}\]
+\[= \sum ^{2k} _ {n=k+1} \frac{1}{n}\]
+
+Then,
+\[\int ^{4k} _ {n=2k} \frac{1}{n}< \sum ^{2k} _ {n=k+1} \frac{1}{n} < \int ^{2k + 2} _ {n=k+1} \frac{1}{n}\]
+which evaluates to \(ln2\)?
+
+Or, you could just say
+\(\sum ^{2k} _ {n=k+1} \frac{1}{n} = \sum ^{2k} _ {n=k+1} \frac{k}{n}\frac{1}{k}\)
+and use the Riemann sum to conclude
+\[\int ^2 _1 \frac{1}{x} dx = [\ln x]^2 _1 = \ln2\]
+
+\end{document}

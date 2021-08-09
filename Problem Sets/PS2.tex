@@ -1,0 +1,393 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Math 15910: Problem Set 2},
+  pdfauthor={Underland, Jake},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
+\title{Math 15910: Problem Set 2}
+\author{Underland, Jake}
+\date{2021-08-09}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\hypertarget{exercise-1}{%
+\section{Exercise 1}\label{exercise-1}}
+
+\hypertarget{problem-1.4.5}{%
+\subsection{Problem 1.4.5}\label{problem-1.4.5}}
+
+\emph{Prove that
+\(A \times \emptyset = \emptyset \times A = \emptyset\)}
+
+Let \(A\) and \(B\) be sets. Suppose \(B = \emptyset\). Then, by
+definition, there does not exist any \(b \in B\). Since the Cartesian
+product of \(A\) and \(B\), \(A \times B\) is defined as the set of the
+ordered pairs \((a, b)\) such that \(a \in A\) and \(b \in B\), if there
+does not exist any \(b \in B\), then there cannot exist any ordered pair
+\((a, b)\). Therefore, there exists no \((a, b) \in A \times B\),
+implying that \(A \times B = A \times \emptyset = \emptyset\).
+Similarly, \(B \times A\) is defined as the set of the ordered pairs
+\((b, a)\) such that \(b \in B\) and \(a \in A\). If there does not
+exist any \(b \in B\), then there cannot exist any ordered pair
+\((b, a)\), hence \(B \times A\) would be empty. Thus,
+\(B \times A = \emptyset \times A = \emptyset\).\\
+From the above, we obtain
+\(A \times \emptyset = \emptyset \times A = \emptyset\). \hfill \(\Box\)
+
+\hypertarget{exercise-2}{%
+\section{Exercise 2}\label{exercise-2}}
+
+\hypertarget{prove-theorem-1.4.7}{%
+\subsection{Prove Theorem 1.4.7}\label{prove-theorem-1.4.7}}
+
+\emph{If \(A\) has \(m\) elements and \(B\) has \(n\) elements, then
+\(A \times B\) has \(mn\) elements}
+
+Let \(m\) be fixed, and let \(A\) be a set with \(m\) elements. \(B\) is
+a set with \(n\) elements. \(m, n \in \mathbb{N}\).\\
+If \(n=1\), there is one element \(b \in B\). Then, \(A \times B\) would
+be the set of all ordered pairs \((a_i, b)\) for \(1 \leq i \leq m\) and
+\(a \in A, b \in B\).\\
+\[\underbrace{(a_1, b), (a_2, b), \dots, (a_m, b)}_{m \text{ pairs}}\]
+The total number of ordered pairs would be \(m\), and since \(n=1\), the
+statement ``\(A \times B\) has \(mn\) elements'' holds true.\\
+Suppose the statement is true for \(n = k\). Now assume \(n = k+1\).
+Then, the elements in \(A \times B\) would be the combination of pairs
+created by \((a_i, b_j)\) where \(1 \leq i \leq m\) and
+\(1 \leq j \leq k\), which is equivalent to \(A \times B\) when
+\(n = k\), plus the combination of pairs created by \((a_i, b_{k+1})\)
+where \(1 \leq i \leq m\). From our supposition, the number of pairs
+created by \((a_i, b_j)\) is \(mk\). Furthermore, the number of pairs
+created by \((a_{k+1}, b_j)\) is \(m\), as can be seen below:\\
+\[\underbrace{(a_1, b_{k+1}), (a_2, b_{k+1}), \dots, (a_m, b_{k+1})}_{m \text{ pairs}}\]
+Thus, the total number of elements in \(A \times B\) for \(n=k+1\) would
+be \[mk + m = m(k + 1)\] It follows that when we suppose the statement
+to be true for \(n = k\), it holds true for \(n = k+1\). Therefore, we
+have shown by induction that If \(A\) has \(m\) elements and \(B\) has
+\(n\) elements, then \(A \times B\) has \(mn\) elements.
+
+\hfill \(\Box\)
+
+\hypertarget{exercise-3}{%
+\section{Exercise 3}\label{exercise-3}}
+
+\hypertarget{problem-1.4.9}{%
+\subsection{Problem 1.4.9}\label{problem-1.4.9}}
+
+\emph{Prove that if \(A_1\) has \(k_1\) elements, \(A_2\) has \(k_2\)
+elements, \ldots, \(A_n\) has \(k_n\) elements, show that
+\(|A_1 \times A_2 \times \dots \times A_n| = |A_1||A_2|\dots|A_n|=k_1k_2\dots k_n\).}
+
+When \(n = 2\), we have already proven in the previous exercise that
+\(|(A_1 \times A_2)| = |A_1||A_2| =k_1k_2\). Thus, the above statement
+holds.\\
+Now suppose that the statement holds for \(n = j\). When \(n = j+1\),
+\[A_1 \times A_2 \times \dots \times A_{j} \times A_{j+1}\]
+\[= (A_1 \times A_2 \times \dots \times A_j) \times A_{j+1}\] Here, we
+substitute \(B = A_1 \times A_2 \times \dots \times A_j\) and treat
+\(B\) as a single set. From our supposition,
+\(|B| = |A_1 \times A_2 \times \dots \times A_j|=|A_1||A_2|\dots|A_j|=k_1k_2\dots k_j\).
+Then, \[|A_1 \times A_2 \times \dots \times A_{j} \times A_{j+1}|\]
+\[= |B \times A_{j+1}|\] From the previous exercise,
+\[|B \times A_{j+1}|\] \[= |B||A_{j+1}| \] \[= k_1k_2\dots k_j k_{j+1}\]
+Thus, the statement holds.\\
+Therefore, we have proven by induction that if \(A_1\) has \(k_1\)
+elements, \(A_2\) has \(k_2\) elements, \ldots, \(A_n\) has \(k_n\)
+elements, then
+\(|A_1 \times A_2 \times \dots \times A_n| = |A_1||A_2|\dots|A_n|=k_1k_2\dots k_n\).
+
+\hfill \(\Box\)
+
+\hypertarget{exercise-4}{%
+\section{Exercise 4}\label{exercise-4}}
+
+\hypertarget{problem-1.4.10}{%
+\subsection{Problem 1.4.10}\label{problem-1.4.10}}
+
+\emph{i. If \(A\) and \(B\) are finite sets and
+\(A \cap B = \emptyset\), show that \(|A\cup B| = |A| + |B|\)}
+
+Suppose that \(|A| = m\), \(|B| = n\) and \(A \cap B = \emptyset\).
+Then, the elements of \(A\) can be written as \(a_1, a_2, \dots, a_m\)
+and the elements of \(B\) can be written as \(b_1, b_2, \dots, b_n\). If
+\(A \cap B = \emptyset\), then by definition, \(a_i \neq b_j\) for all
+\(1 \leq i \leq m\), \(1 \leq j \leq n\). It follows that the union of
+the two sets would contain the elements
+\[\underbrace{a_1, a_2, \dots, a_m}_{m}, \underbrace{b_1, b_2, \dots, b_n}_{n}\]
+without overlap. The number of elements in the union would be sum of the
+number of elements in \(A\) which is \(|A| = m\) and the number of
+elements in \(B\) which is \(|B| = n\).\\
+Therefore, if \(A\) and \(B\) are finite sets and
+\(A \cap B = \emptyset\), then \(|A\cup B| = |A| + |B|\).
+\hfill \(\Box\)
+
+\emph{ii. If \(A\) and \(B\) are finite sets, show that
+\(|A\cup B| = |A| + |B| - |A\cap B|\)}
+
+Suppose that \(|A| = m\), \(|B| = n\), and \(|A \cap B|=x\). Then, the
+elements of \(A\) can be written as
+\(\{a_1, a_2, \dots, a_{m-x}, c_1, c_2, ..., c_x\}\) and the elements of
+\(B\) can be written as
+\(\{b_1, b_2, \dots, b_{n-x},c_1, c_2, ..., c_x\}\) where
+\(a \in A \backslash B\), \(b \in B \backslash A\), \(c \in A \cap B\).
+Then,
+\[A\cup B = \{\underbrace{a_1, a_2, \dots, a_{m-x}}_{m-x}, \underbrace{b_1, b_2, \dots, b_{n-x}}_{n-x}, \underbrace{c_1, c_2, ..., c_x}_x\}\]
+\[\Rightarrow |A \cup B| = (m - x) + (n - x) + x\] \[= m + n -x\]
+\[= |A| + |B| - |A\cap B|\] Thus, we have shown that if \(A\) and \(B\)
+are finite sets, \(|A\cup B| = |A| + |B| - |A\cap B|\). \hfill \(\Box\)
+
+\hypertarget{exercise-5}{%
+\section{Exercise 5}\label{exercise-5}}
+
+\emph{Prove that, for all \(n \in \mathbb{N}\),}
+\[1^2 + 2^2 + \dots + n^2 = \frac{n(n+1)(2n+1)}{6}\]
+
+Start with \(n=1\). Then,
+\[1^2 =1,  \frac{1(1+1)(2*1+1)}{6} = \frac{6}{6} = 1\]
+\[\Rightarrow 1^2 = \frac{1(1+1)(2*1+1)}{6} \] Thus, the statement
+holds.\\
+Next, suppose the statement is true for \(n = k\). Now, let's consider
+\(n = k+1\). We begin with the left hand side of the equation.
+\[1^2 + 2^2 + \dots + k^2 + (k+1)^2\]
+\[= (1^2 + 2^2 + \dots + k^2) + (k+1)^2\] From our assumption,
+\[=\frac{k(k+1)(2k+1)}{6} + (k+1)^2\]
+\[=\frac{2k^3 + 3k^2 + k}{6} + \frac{6k^2 + 12k + 6}{6}\]
+\[= \frac{2k^3 + 9k^2 + 13k + 6}{6}\]
+\[=\frac{(k+1)(2k^2 + 7k + 6)}{6}\] \[=\frac{(k+1)(k+2)(2k + 3)}{6}\]
+\[=\frac{(k+1)\{(k+1)+1\}\{2(k + 1)+1\}}{6}\] Above, we have derived the
+right hand side from the left hand side of the equation. Hence, the
+statement is true for \(n = k+1\) given that the statement is true for
+\(n = k\).\\
+Therefore, we have proven by induction that
+\[1^2 + 2^2 + \dots + n^2 = \frac{n(n+1)(2n+1)}{6}\] \hfill \(\Box\)
+
+\hypertarget{exercise-6}{%
+\section{Exercise 6}\label{exercise-6}}
+
+\hypertarget{problem-1.7.9}{%
+\subsection{Problem 1.7.9}\label{problem-1.7.9}}
+
+\emph{Suppose that \(A\) is a set with \(n\) elements, \(B\) is a set
+with \(m\) elements, and \(n>m\). If \(f: A \rightarrow B\) is a
+function, there are at least two distinct elements of \(A\) that
+correspond to the same element of \(B\).}
+
+We take \(|A| = n\), \(|B| = m\) and \(n>m\) as given. If
+\(f: A \rightarrow B\) is a function, suppose that there is at most one
+element of \(A\) that corresponds to one element of \(B\). Since a
+function that maps from \(A\) to \(B\) is defined as a subset of
+\(A \times B\) such that each element of A occurs exactly once as the
+first coordinate, if there is at most one element of \(A\) that
+corresponds to one element of \(B\), the subset can be written as
+\({(a_i, b_i) \text{ for }1 \leq i \leq m}\). It is clear that the
+number of elements in this subset is \(m\). By definition of a function,
+each element of \(A\) occurs exactly once as the first coordinate, so
+the number of elements in \(A\) is equal to the number of elements in
+the subset, and \(n=m\). This contradicts \(n>m\). Thus, if \(n>m\) and
+if \(f: A \rightarrow B\) is a function, there are at least two distinct
+elements of \(A\) that correspond to the same element of \(B\).
+
+\hfill \(\Box\)
+
+\hypertarget{exercise-7}{%
+\section{Exercise 7}\label{exercise-7}}
+
+\hypertarget{problem-1.7.15}{%
+\subsection{Problem 1.7.15}\label{problem-1.7.15}}
+
+\hypertarget{i.-fmathbbn-rightarrow-mathbbn-fn-2n.}{%
+\subsubsection{\texorpdfstring{i.
+\(f:\mathbb{N} \rightarrow \mathbb{N}, f(n) = 2n.\)}{i. f:\textbackslash mathbb\{N\} \textbackslash rightarrow \textbackslash mathbb\{N\}, f(n) = 2n.}}\label{i.-fmathbbn-rightarrow-mathbbn-fn-2n.}}
+
+The above function is injective\\
+Proof: Take \(x_1, x_2 \in \mathbb{N}\). Suppose that
+\(f(x_1) = f(x_2)\). Then, \[2x_1 = 2x_2\]
+\[ \Longrightarrow x_1 = x_2\]\\
+Since \(f(x_1) = f(x_2)\Longrightarrow x_1 = x_2\), \(f\) is
+injective.\\
+Next, take \(y \in \mathbb{N}\). We want to show that \(y = f(x)\) for
+some \(x \in \mathbb{N}\).\\
+\[y = f(x)\] \[\Longrightarrow y = 2x\]
+\[\Longrightarrow x = \frac{y}{2}\] However, if \(y\) is an odd number,
+there is no \(x \in \mathbb{N}\) that satisfies the above. Therefore,
+\(f\) is not surjective.\\
+Hence, \(f\) is injective.
+
+\hypertarget{ii.-fmathbbz-rightarrow-mathbbz-fn-n6.}{%
+\subsubsection{\texorpdfstring{ii.
+\(f:\mathbb{Z} \rightarrow \mathbb{Z}, f(n) = n+6.\)}{ii. f:\textbackslash mathbb\{Z\} \textbackslash rightarrow \textbackslash mathbb\{Z\}, f(n) = n+6.}}\label{ii.-fmathbbz-rightarrow-mathbbz-fn-n6.}}
+
+The above function is bijective.\\
+Proof: Take \(x_1, x_2 \in \mathbb{Z}\). Suppose that
+\(f(x_1) = f(x_2)\). Then, \[x_1 + 6= x_2 + 6\]
+\[ \Longrightarrow x_1 = x_2\]\\
+Since \(f(x_1) = f(x_2)\Longrightarrow x_1 = x_2\), \(f\) is
+injective.\\
+Next, take \(y \in \mathbb{Z}\). We want to show that \(y = f(x)\) for
+some \(x \in \mathbb{N}\).\\
+\[y = f(x)\] \[\Longrightarrow y = x + 6\] \[\Longrightarrow x = y - 6\]
+Since \(\mathbb{Z}\) is a ring and \(y, 6 \in \mathbb{Z}\),
+\(y-6 \in \mathbb{Z}\). Thus, we have found that for all
+\(y \in \mathbb{Z}\), \(y = f(x)\) for some \(x \in \mathbb{Z}\).\\
+Hence, \(f\) is bijective.
+
+\hypertarget{iii.-fmathbbn-rightarrow-mathbbq-fn-n.}{%
+\subsubsection{\texorpdfstring{iii.
+\(f:\mathbb{N} \rightarrow \mathbb{Q}, f(n) = n.\)}{iii. f:\textbackslash mathbb\{N\} \textbackslash rightarrow \textbackslash mathbb\{Q\}, f(n) = n.}}\label{iii.-fmathbbn-rightarrow-mathbbq-fn-n.}}
+
+The above function is injective.\\
+Proof: Take \(x_1, x_2 \in \mathbb{N}\). Suppose that
+\(f(x_1) = f(x_2)\). Then, \[x_1= x_2\] Since
+\(f(x_1) = f(x_2)\Longrightarrow x_1 = x_2\), \(f\) is injective.\\
+Next, take \(y \in \mathbb{Q}\). We want to show that \(y = f(x)\) for
+some \(x \in \mathbb{N}\).\\
+\[y = f(x)\] \[\Longrightarrow y = x\] \[\Longrightarrow x = y\]
+However, the above does not hold for any
+\(y \in \mathbb{Q} \backslash \mathbb{N}\). Therefore, \(f\) is not
+surjective.\\
+Hence, \(f\) is injective.
+
+\hypertarget{v.-fmathbbr-rightarrow-mathbbn-fx-text-the-third-digit-of-x-text-after-the-decimal.}{%
+\subsubsection{\texorpdfstring{v.
+\(f:\mathbb{R} \rightarrow \mathbb{N}, f(x) = \text{ the third digit of } x \text{ after the decimal.}\)}{v. f:\textbackslash mathbb\{R\} \textbackslash rightarrow \textbackslash mathbb\{N\}, f(x) = \textbackslash text\{ the third digit of \} x \textbackslash text\{ after the decimal.\}}}\label{v.-fmathbbr-rightarrow-mathbbn-fx-text-the-third-digit-of-x-text-after-the-decimal.}}
+
+The above function is neither injective nor surjective.\\
+Proof: Take \(x_1 = 0.125\) and \(x_2 = 5.5555\). Then,
+\(f(x_1) = f(x_2)\). However, \(x_1 \neq x_2\). Thus,
+\(f(x_1) = f(x_2) \nRightarrow x_1 = x_2\), and \(f\) is not
+injective.\\
+Next, take \(y \in \mathbb{N}\). We want to show that \(y = f(x)\) for
+some \(x \in \mathbb{N}\).\\
+\[y = f(x)\]
+\[\Longrightarrow y = \text{the third digit of } x \text{ after the decimal.}\]
+\[\Longrightarrow x = \text{Any real number whose decimal expansion has } y \text{ in the third digit after the decimal}\]
+However, the above does not hold for any \(y > 9\), as the digit must be
+a natural number from 1 to 9. Therefore, \(f\) is not surjective.\\
+Hence, \(f\) is neither injective nor surjetive.
+
+\hypertarget{exercise-8}{%
+\section{Exercise 8}\label{exercise-8}}
+
+\hypertarget{problem-1.7.22}{%
+\subsection{Problem 1.7.22}\label{problem-1.7.22}}
+
+\emph{Show that} \(f:\mathbb{N} \rightarrow \mathbb{Z}\)
+\[f(n) = \begin{cases} \frac{n}{2}, \text{       if }n \text{ is even} \\ \frac{1 -n}{2}, \text{       if }n \text{ is odd.} \end{cases}\]
+\emph{is a bijection}
+
+~~~~Take \(x_1, x_2 \in \mathbb{N}\). Suppose that \(f(x_1) = f(x_2)\).
+We consider the following three cases:\\
+\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}1.
+If both \(x_1\) and \(x_2\) are even. Then, \(x_1\) and \(x_2\) can be
+expressed as \(2m_1, 2m_2\) for some \(m_1, m_2 \in \mathbb{N}\). Thus,
+\[f(x_1) = f(x_2)\]
+
+\[\Longrightarrow \frac{2m_1}{2} = \frac{2m_2}{2}\]
+\[\Longrightarrow m_1 = m_2\] \[\Longrightarrow x_1 = x_2\] ~~~~2. If
+both \(x_1\) and \(x_2\) are odd. Then, \(x_1\) and \(x_2\) can be
+expressed as \(2m_1 - 1, 2m_2 - 1\) for some
+\(m_1, m_2 \in \mathbb{N}\). Thus, \[f(x_1) = f(x_2)\]
+
+\[\Longrightarrow \frac{1 - (2m_1 -1)}{2} = \frac{1-(2m_2-1)}{2}\]
+\[\Longrightarrow \frac{2 - 2m_1}{2} = \frac{2-2m_2}{2}\]
+\[\Longrightarrow 1 - m_1 = 1-m_2\] \[\Longrightarrow m_1 = m_2\]
+\[\Longrightarrow x_1 = x_2\]\\
+\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}3.
+If \(x_1\) is even and \(x_2\) is odd. Then, \(x_1\) and \(x_2\) can be
+expressed as \(2m_1, 2m_2 - 1\) for some \(m_1, m_2 \in \mathbb{N}\).
+Thus, \[f(x_1) = f(x_2)\]
+
+\[\Longrightarrow \frac{2m_1 }{2} = \frac{1-(2m_2-1)}{2}\]
+\[\Longrightarrow m_1 = 1 -m_2\] However, there are no
+\(m_1, m_2 \in \mathbb{N}\) that satisfy the above expression, since
+\(m_1 \geq 1, 1-m_2 \leq 0\). Similarly, if \(x_1\) is odd and \(x_2\)
+is even, \(f(x_1) \neq f(x_2)\).\\
+\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}From
+3., we know that if \(f(x_1) = f(x_2)\), then either both \(x_1\) and
+\(x_2\) are odd or both are even. From 1. and 2., we know that if are
+odd or even, \(f(x_1) = f(x_2)\) implies that \(x_1 = x_2\). Thus, \(f\)
+is an injection.
+
+~~~~Now, take \(y \in \mathbb{Z}\). We want to show that \(y = f(x)\)
+for some \(x \in \mathbb{N}\).\\
+If \(y > 0\):\\
+\[y = f(x)\] \[\Longrightarrow y = \frac{x}{2}\]
+\[\Longrightarrow x = 2y\] Since \(y \in \mathbb{Z}, y > 0\), we get
+that \(2y \in \mathbb{N}\) and \(2y\) is even. From here, we obtain that
+for all \(y>0\), \(y = f(x)\) for some even \(x \in \mathbb{N}\).\\
+If \(y \leq 0\):\\
+\[y = f(x)\] \[\Longrightarrow y = \frac{1 - x}{2}\]
+\[\Longrightarrow x = 1 - 2y\] Since \(y \in \mathbb{Z}, y \leq 0\), we
+get that \(1 - 2y \in \mathbb{N}\), and \(1-2y\) is odd. From here, we
+obtain that for all \(y\leq0\), \(y = f(x)\) for some odd
+\(x \in \mathbb{N}\).\\
+\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}Together,
+we have shown that for all \(y \in \mathbb{Z}\), \(y = f(x)\) for some
+\(x \in \mathbb{N}\). Thus, \(f\) is surjective.\\
+\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}Since
+\(f\) is both injective and surjective, \(f\) is bijective.
+
+\hfill \(\Box\)
+
+\end{document}

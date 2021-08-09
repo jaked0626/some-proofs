@@ -1,36 +1,84 @@
----
-title: "Math 15910: Problem Set 8"
-author: "Underland, Jake"
-date: "`r Sys.Date()`"
-output:
-  pdf_document: 
-    latex_engine: xelatex
-    toc: true
-    keep_tex: true
-  html_document:
-    toc: false
-    toc_depth: 3
-    toc_float: yes
-  word_document:
-    toc: false
-    toc_depth: '3'
----
-</style>
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Math 15910: Problem Set 8},
+  pdfauthor={Underland, Jake},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
 
-<style type="text/css">
+\title{Math 15910: Problem Set 8}
+\author{Underland, Jake}
+\date{2021-08-09}
 
-body, td {
-   font-size: 14px;
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
 }
+\hypertarget{exercise-1}{%
+\section{Exercise 1}\label{exercise-1}}
 
-</style>
+\hypertarget{problem-3.2.9}{%
+\subsection{Problem 3.2.9}\label{problem-3.2.9}}
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-# Exercise 1  
-## Problem 3.2.9  
 \textit{Suppose $\lim _{n \to \infty} x_n = x $ and $\lim _{n \to \infty} y_n = y $}
+
 \begin{enumerate}
 \item \textit{Show that $\lim _{n \to \infty} (x_n + y_n) = x + y$}  
   
@@ -60,27 +108,51 @@ Therefore, for all $\epsilon'>0$, there exists $N \in \mathbb{N}$ such that for 
 \hfill $\Box$ 
 \end{enumerate}
 
+\hypertarget{exercise-2}{%
+\section{Exercise 2}\label{exercise-2}}
 
-# Exercise 2
-\textit{Let $m \in \mathbb{N}$. Prove that $(x_n)_{n \in \mathbb{N}}$ converges iff $(x_{m+n})_{n \in \mathbb{N}}$ converges. Moreover, show that $\lim_{n\to\infty} x_n = \lim_{n\to\infty} x_{m+n}$}  
-  
-    Proof. If $(x_n)_{n \in \mathbb{N}}$ converges to $x$, then we know that for all $\epsilon >0$ there exists an $N \in \mathbb{N}$ such that for all $n>N$, $|x_n - x|<\epsilon$. Since $m + n > n$, $(x_{m+n})$ also converges to the same limit $x$.   
-    If $(x_{m+n})_{n \in \mathbb{N}}$ converges to $x$, then for all $\epsilon >0$ there exists an $N_1 \in \mathbb{N}$ such that for all $m + n>N_1$, $|x_{m+n} - x|<\epsilon$. Then, take $N_2 = N_1 + m$. For all $n + m> N_2, \space n+m > N_1 + m > N_1$. Furthermore, $n+m > N_1 + m \implies n > N_1$. Thus, $|x_{n} - x|<\epsilon$. Such an $N_2$ exists for all $\epsilon$, given that $(x_{m+n})_{n \in \mathbb{N}}$ converges. Thus, $(x_n)_{n \in \mathbb{N}}$ converges iff $(x_{m+n})_{n \in \mathbb{N}}$, and their limits are equivalent. 
+\textit{Let $m \in \mathbb{N}$. Prove that $(x_n)_{n \in \mathbb{N}}$ converges iff $(x_{m+n})_{n \in \mathbb{N}}$ converges. Moreover, show that $\lim_{n\to\infty} x_n = \lim_{n\to\infty} x_{m+n}$}
 
-\hfill $\Box$
+~~~~Proof. If \((x_n)_{n \in \mathbb{N}}\) converges to \(x\), then we
+know that for all \(\epsilon >0\) there exists an \(N \in \mathbb{N}\)
+such that for all \(n>N\), \(|x_n - x|<\epsilon\). Since \(m + n > n\),
+\((x_{m+n})\) also converges to the same limit \(x\).\\
+\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}If
+\((x_{m+n})_{n \in \mathbb{N}}\) converges to \(x\), then for all
+\(\epsilon >0\) there exists an \(N_1 \in \mathbb{N}\) such that for all
+\(m + n>N_1\), \(|x_{m+n} - x|<\epsilon\). Then, take \(N_2 = N_1 + m\).
+For all \(n + m> N_2, \space n+m > N_1 + m > N_1\). Furthermore,
+\(n+m > N_1 + m \implies n > N_1\). Thus, \(|x_{n} - x|<\epsilon\). Such
+an \(N_2\) exists for all \(\epsilon\), given that
+\((x_{m+n})_{n \in \mathbb{N}}\) converges. Thus,
+\((x_n)_{n \in \mathbb{N}}\) converges iff
+\((x_{m+n})_{n \in \mathbb{N}}\), and their limits are equivalent.
 
-# Exercise 3  
+\hfill \(\Box\)
+
+\hypertarget{exercise-3}{%
+\section{Exercise 3}\label{exercise-3}}
+
 \textit{Show that $(x_n)_{n\in \mathbb{N}}$ converges to $L$ if and only if every subsequence of $(x_n)_{n\in \mathbb{N}}$ converges to $L$}
 
-    Proof. Let $b_n$ be a subsequence of $x_n$. Note that for all $x_n$, $b_n = x_m \text{ for } m > n$. By definition of convergence, for all $\epsilon >0$ there exists an $N \in \mathbb{N}$ such that for all $n>N$, $|x_n - L|<\epsilon$. Then, since $b_n = x_m \text{ where } m > n$, $|b_n - L|<\epsilon$, and thus $b_n$ converges to $L$. 
-    If every subsequence of $(x_n)_{n\in \mathbb{N}}$ converges to $L$, since a sequence is a subsequence of itself, it follows that $(x_n)_{n\in \mathbb{N}}$ converges to $L$. 
+~~~~Proof. Let \(b_n\) be a subsequence of \(x_n\). Note that for all
+\(x_n\), \(b_n = x_m \text{ for } m > n\). By definition of convergence,
+for all \(\epsilon >0\) there exists an \(N \in \mathbb{N}\) such that
+for all \(n>N\), \(|x_n - L|<\epsilon\). Then, since
+\(b_n = x_m \text{ where } m > n\), \(|b_n - L|<\epsilon\), and thus
+\(b_n\) converges to \(L\). ~~~~If every subsequence of
+\((x_n)_{n\in \mathbb{N}}\) converges to \(L\), since a sequence is a
+subsequence of itself, it follows that \((x_n)_{n\in \mathbb{N}}\)
+converges to \(L\).
 
-\hfill $\Box$  
+\hfill \(\Box\)
 
-# Exercise 4  
-\textit{Prove directly from the definition that $a_n=\frac{n + 2}{2n + 1}$ is Cauchy.}  
+\hypertarget{exercise-4}{%
+\section{Exercise 4}\label{exercise-4}}
 
-Proof. Let $N = \frac{3}{2\epsilon}$. Then, for $m, n > N$, 
+\textit{Prove directly from the definition that $a_n=\frac{n + 2}{2n + 1}$ is Cauchy.}
+
+Proof. Let \(N = \frac{3}{2\epsilon}\). Then, for \(m, n > N\),
 \[\begin{aligned}|\frac{n+2}{2n+1} - \frac{m+2}{2m+1}| &= |\frac{3m - 3n}{(2n+1)(2m+1)}| 
 \\ &=|\frac{3n - 3m}{(2n+1)(2m+1)}| \\
 &\leq |\frac{3n}{(2n+1)(2m+1)}| + |\frac{3m}{(2n+1)(2m+1)}| \\
@@ -88,30 +160,41 @@ Proof. Let $N = \frac{3}{2\epsilon}$. Then, for $m, n > N$,
 &= |\frac{3}{4m}| + |\frac{3}{4n}| \\
 &< |\frac{\epsilon}{2}| + |\frac{\epsilon}{2}| \\
 &= \epsilon
-\end{aligned}\] 
-Thus, $a_n$ is Cauchy. 
-  
-\hfill $\Box$
+\end{aligned}\] Thus, \(a_n\) is Cauchy.
 
-# Exercise 5  
-## Problem 3.6.13  
-\textit{Prove that every Cauchy sequence in $\mathbb{R}$ is bounded.}  
-  
-    Proof. Since the sequence is Cauchy, for all $\epsilon > 0$, there exists $N$ such that for all $m, n > N$, $|a_n - a_m| < \epsilon$. Let $\epsilon = \epsilon_0$ and $N = N_0$ be the $N$ such that for all $m, n > N_0$, $|a_n - a_m| < \epsilon_0$. Furthermore, let $m=m_0>N_0$. Then, from triangle inequality, 
+\hfill \(\Box\)
+
+\hypertarget{exercise-5}{%
+\section{Exercise 5}\label{exercise-5}}
+
+\hypertarget{problem-3.6.13}{%
+\subsection{Problem 3.6.13}\label{problem-3.6.13}}
+
+\textit{Prove that every Cauchy sequence in $\mathbb{R}$ is bounded.}
+
+~~~~Proof. Since the sequence is Cauchy, for all \(\epsilon > 0\), there
+exists \(N\) such that for all \(m, n > N\), \(|a_n - a_m| < \epsilon\).
+Let \(\epsilon = \epsilon_0\) and \(N = N_0\) be the \(N\) such that for
+all \(m, n > N_0\), \(|a_n - a_m| < \epsilon_0\). Furthermore, let
+\(m=m_0>N_0\). Then, from triangle inequality,
 \[\begin{aligned}|a_n -a_{m_0}| &<\epsilon_0 \\
 \implies |a_n -a_{m_0}| + |a_{m_0}| &<\epsilon_0 + |a_{m_0}| \\
 \text{From triangle inequality,} \\
 |a_n| = |a_n - a_{m_0} + a_{m_0}| &\leq |a_n -a_{m_0}| + |a_{m_0}|<\epsilon_0 + |a_{m_0}|\\
 \implies |a_n|&<\epsilon_0 + |a_{m_0}|
-\end{aligned}\]
-    Thus, $|a_n|$ is bounded.  
-    Theorem 3.6.14 shows that a sequence is convergent if and only if it is Cauchy. Since we know that Cauchy sequences are bounded, we can therefore deduce that all convergent sequences are bounded. 
+\end{aligned}\] ~~~~Thus, \(|a_n|\) is bounded.\\
+\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}Theorem
+3.6.14 shows that a sequence is convergent if and only if it is Cauchy.
+Since we know that Cauchy sequences are bounded, we can therefore deduce
+that all convergent sequences are bounded.
 
-\hfill $\Box$  
+\hfill \(\Box\)
 
+\hypertarget{exercise-6}{%
+\section{Exercise 6}\label{exercise-6}}
 
-# Exercise 6  
 \textit{Let $(a_n)_{n \in \mathbb{N}}$ be a sequence of strictly positive real numbers and suppose that $(a_n)\to a$}
+
 \begin{enumerate}
 \item \textit{Show that $a \geq 0$.}  
 Proof. Suppose $a < 0$. Note that $a_n > 0$ for all $n$. Then, since $a$ is the limit of $a_n$, for all $\epsilon > 0$, there exists $N$ such that for all $n > N$, $|a_n - a| < \epsilon$. Let $\epsilon = \frac{|a|}{2} > 0$. Since $a < 0$ and $a_n > 0$,
@@ -133,10 +216,15 @@ Thus, the limit of $\sqrt {a_n}$ is $\sqrt{a}$.
 
 \hfill $\Box$ 
 \end{enumerate}
-  
-# Exercise 7  
-## Problem 3.6.18  
-\textit{Find the accumulation points of the following sets in $\mathbb{R}$}  
+
+\hypertarget{exercise-7}{%
+\section{Exercise 7}\label{exercise-7}}
+
+\hypertarget{problem-3.6.18}{%
+\subsection{Problem 3.6.18}\label{problem-3.6.18}}
+
+\textit{Find the accumulation points of the following sets in $\mathbb{R}$}\\
+
 \begin{enumerate}
 
 \item $S = (0,1)$;  
@@ -161,12 +249,13 @@ We know that the sequence of primes is infinite and increasing, and therefore th
 
 \end{enumerate}
 
-\hfill $\Box$
-  
+\hfill \(\Box\)
 
+\hypertarget{exercise-8}{%
+\section{Exercise 8}\label{exercise-8}}
 
-# Exercise 8
-## Problem 3.6.21  
+\hypertarget{problem-3.6.21}{%
+\subsection{Problem 3.6.21}\label{problem-3.6.21}}
 
 \begin{enumerate}
 \item \textit{Find an infinite subset of $\mathbb{R}$ that does not have an accumulation point in $\mathbb{R}$}  
@@ -179,20 +268,8 @@ The set $\{1\}$ is a bounded subset but does not have an accumulation point. Thi
   
 The sequence \[x_n = \lfloor \sqrt 2 \cdot  10 ^{n-1}\rfloor \cdot \frac{1}{10^{n-1}}\]
 is bounded above by $\sqrt 2$, below by $1$, and is infinite. Its limit is $\sqrt 2$, as $x_n$ is just the decimal expansion of $\sqrt 2$ until the $n-1$th digit after the decimal. 
-\end{enumerate} 
-  
-\hfill $\Box$
+\end{enumerate}
 
+\hfill \(\Box\)
 
-
-
-
-
-
-
-
-
-
-
-
-
+\end{document}
